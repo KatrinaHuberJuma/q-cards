@@ -1,0 +1,5 @@
+notes.txt
+resources.txt
+env/
+*.pyc
+__pycache__/
