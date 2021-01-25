@@ -1,4 +1,7 @@
-real MVP feature: use react
+real MVP feature: 
+use react
+understand react router
+use react bootstrap
 - users can login as staff or students
 - users can see cards holding student queue request
 - users can see a form that posts info to the server
@@ -21,7 +24,7 @@ nice-to-haves:
 
 Components
 ----------
-    Root
+    App
         Queue
             Card
         Staff

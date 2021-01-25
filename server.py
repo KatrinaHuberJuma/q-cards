@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from random import choice, randint
 
 
@@ -9,13 +9,7 @@ app = Flask(__name__)
 def index():
     """Show homepage"""
 
-    return """
-    <html>
-    <body>
-      <h1>I am the landing page</h1>
-    </body>
-    </html>
-    """
+    return render_template('base.html')
 
 
 
