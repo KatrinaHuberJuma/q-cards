@@ -1,5 +1,6 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from random import choice, randint
+from mock_data import queue_cards
 
 
 app = Flask(__name__)
@@ -10,6 +11,13 @@ def index():
     """Show homepage"""
 
     return render_template('base.html')
+
+
+@app.route('/cards.json')
+def return_mock_info():
+    """Simulate retrieving data from db"""
+
+    return jsonify(queue_cards)
 
 
 
