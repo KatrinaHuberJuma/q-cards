@@ -1,3 +1,4 @@
+# industry standard note: "should" store as Python style and convert to JS for front end
 queue_cards = [
     {
         "studentName":"Athelia",
