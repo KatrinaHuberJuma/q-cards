@@ -41,6 +41,3 @@ function Queue(){
     )
   }
   
-  ReactDOM.render(
-    <Queue />, document.querySelector('#app')
-  )
