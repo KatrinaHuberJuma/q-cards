@@ -24,6 +24,8 @@ nice-to-haves:
 - @ another staff for additional assistance
 - cards should be draggable
 - use react to make modal with state
+- create JS queue class
+- create heap for priority
 
 Components
 ----------
@@ -32,8 +34,9 @@ Components
         Main
             Queue
                 Card
-            Staff
-            New Queue Request Form
+                    Staff
+            Enqueue
+                EnqueueForm
         Footer
  
 
