@@ -8,7 +8,7 @@ function Enqueue() {
 
     return(
         <div>
-            <button onClick={makeAlert}>I'm just hanging out</button>
+            <button onClick={makeAlert}>Enter the Queue</button>
             <EnqueueForm />
         </div>
     )
