@@ -3,3 +3,4 @@ resources.txt
 env/
 *.pyc
 __pycache__/
+.vscode/
