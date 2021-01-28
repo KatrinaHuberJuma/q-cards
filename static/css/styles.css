@@ -1,0 +1,16 @@
+.card {
+    background-color: #d6d6d6;
+    margin: 15px;
+    width: 275px;
+    padding: 15px;
+}
+
+.card > img {
+    width: 80%;
+    margin: auto;
+    display: block;
+}
+
+.queue {
+    display: flex;
+}

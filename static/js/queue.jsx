@@ -34,10 +34,9 @@ function Queue(){
     }
 
     return (
-      <React.Fragment>
-        <h1>this exists</h1>
+      <div className="queue">
         {makeCards()}
-      </React.Fragment>
+      </div>
     )
   }
   
