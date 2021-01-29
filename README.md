@@ -1,8 +1,8 @@
 real MVP feature: 
 use react
-understand react router
+<!-- understand react router -->
 use react bootstrap / css grid / flexbox
-- [ ] users can login as staff or students * next time on Kat and Athelia Win React
+- [ ] users can login as staff or students
     - [x] make mock login data
     - [x] server route
     - [x] make login form
@@ -10,16 +10,17 @@ use react bootstrap / css grid / flexbox
     - [x] hold staff/student in state in <Main />
     - [ ] come up with better fake user name react pun
 - [x] users can see cards holding student queue request
+- [ ] cards can be dequeued -> sent to archive
 - [x] users can see a form that posts info to the server
-
-- "students fill out forms with
-    - desired outcome, 
-    - current behavior, 
-    - things I've tried, 
-    - how I got here, 
-    - other info
-    and then it becomes a little card"
+    - "students fill out forms with
+    - [ ] desired outcome, 
+    - [ ] current behavior, 
+    - [ ] things I've tried, 
+    - [ ] how I got here, 
+    - [ ] other info
+    - and then it becomes a little card"
 - [ ] bug bounty
+- [ ] database, data model, routes to retrieve/update db * Kat to sally forth solo
 
 nice-to-haves:
 - [ ] users can unfold chat/thread area and have detailed discussions
@@ -35,7 +36,7 @@ nice-to-haves:
 - [ ] handle pair questions
 
 explore:
-- [ ] Frodo API
+- [ ] Frodo API * Athelia solo quest
 
 will not use (for this project):
 - [ ] react router
