@@ -21,3 +21,16 @@ queue_cards = [
         "imgUrl": "https://fellowship.hackbrightacademy.com/media/CACHE/images/staff/andrew/32238b47f4ad742072e16f0ba1cb1794.jpeg"
     }
 ]
+
+users = [
+    { 
+        "user_name": "Balloonicorn",
+        "password": "Balloonicorn",
+        "is_staff": True
+    },
+    { 
+        "user_name": "Jsonette",
+        "password": "Jsonette",
+        "is_staff": False
+    },
+]

@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, jsonify
 from random import choice, randint
-from mock_data import queue_cards
+from mock_data import queue_cards, users
 
 
 app = Flask(__name__)
@@ -20,14 +20,31 @@ def return_mock_info():
     return jsonify(queue_cards)
 
 
-@app.route('/enqueue-submit', methods=["POST"])
+@app.route('/login', methods= ['POST'])
+def login():
+    """Login user"""
+    # check against user data, if match, login
+    # else return an error of some sort
+
+    user_name = request.json.get('userName')
+    password = request.json.get('password')
+
+    for user in users:
+        if user['user_name'] == user_name and user['password'] == password:
+            return jsonify(user)
+            # make headers to increase legitness 
+
+    return jsonify('user and password not found')
+
+
+@app.route('/enqueue-submit', methods=['POST'])
 def handle_enqueue_submit():
     """Store form data"""
 
     # import pdb; pdb.set_trace()
 
-    # title = request.form.get('title')
-    title = request.json['title']
+    title = request.json.get('title')
+    # title = request.json['title']
     print('\n'*5, '*'*20, title, '\n'*5)
     # title is None
     # print('\n'*5, '*'*20, request.form, '\n'*5)
