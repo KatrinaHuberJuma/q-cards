@@ -24,13 +24,13 @@ queue_cards = [
 
 users = [
     { 
-        "user_name": "Balloonicorn",
+        "userName": "Balloonicorn",
         "password": "Balloonicorn",
-        "is_staff": True
+        "isStaff": True
     },
     { 
-        "user_name": "Jsonette",
+        "userName": "Jsonette",
         "password": "Jsonette",
-        "is_staff": False
+        "isStaff": False
     },
 ]

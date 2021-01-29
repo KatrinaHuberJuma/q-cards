@@ -35,7 +35,7 @@ def login():
     response = 'not right pw/user name :('
 
     for user in users:
-        if user['user_name'] == user_name and user['password'] == password:
+        if user['userName'] == user_name and user['password'] == password:
 
             code = 200
             response = user
