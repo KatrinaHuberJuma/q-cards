@@ -23,6 +23,7 @@ function LoginForm(props) {
         fetch('/login', options)
         .then(response => {
             if (response.status === 200){
+                console.log(response)
                 props.handleLogin()
                 return response.json();
             } else {

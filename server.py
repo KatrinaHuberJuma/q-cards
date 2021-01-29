@@ -23,8 +23,6 @@ def return_mock_info():
 @app.route('/login', methods= ['POST'])
 def login():
     """Login user"""
-    # check against user data, if match, login
-    # else return an error of some sort
 
     user_name = request.json.get('userName')
     password = request.json.get('password')
@@ -33,26 +31,17 @@ def login():
     print(f'\n\nuser_name = {user_name}, password = {password}\n\n')
     print('*'*15)
 
-    response = {
-        'headers': { 
-            'status': 406,
-            'statusText': 'not right pw/user name :('
-        },
-        'body': {}
-    }
+    code = 403
+    response = 'not right pw/user name :('
 
     for user in users:
         if user['user_name'] == user_name and user['password'] == password:
-            response['body'] = user
-            response['headers'] = {
-                'status': 200,
-                'statusText': 'Good job buddy!'
-            }
-            break
-            # return jsonify(response)
-            # make headers to increase legitness 
 
-    return jsonify(response)
+            code = 200
+            response = user
+            break
+
+    return (jsonify(response), code)
 
 
 @app.route('/enqueue-submit', methods=['POST'])
@@ -62,10 +51,7 @@ def handle_enqueue_submit():
     # import pdb; pdb.set_trace()
 
     title = request.json.get('title')
-    # title = request.json['title']
     print('\n'*5, '*'*20, title, '\n'*5)
-    # title is None
-    # print('\n'*5, '*'*20, request.form, '\n'*5)
     return jsonify('YAS')
 
 
