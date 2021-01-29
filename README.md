@@ -3,11 +3,12 @@ use react
 understand react router
 use react bootstrap / css grid / flexbox
 - [ ] users can login as staff or students * next time on Kat and Athelia Win React
-    - make mock login data
-    - server route
-    - make login form
-    - logic about what logged in users see
-    - come up with better fake user name react pun
+    - [x] make mock login data
+    - [x] server route
+    - [x] make login form
+    - [x] logic about what logged in users see
+    - [x] hold staff/student in state in <Main />
+    - [ ] come up with better fake user name react pun
 - [x] users can see cards holding student queue request
 - [x] users can see a form that posts info to the server
 
@@ -18,7 +19,7 @@ use react bootstrap / css grid / flexbox
     - how I got here, 
     - other info
     and then it becomes a little card"
-- [ ] bugs kill count
+- [ ] bug bounty
 
 nice-to-haves:
 - [ ] users can unfold chat/thread area and have detailed discussions
@@ -33,6 +34,9 @@ nice-to-haves:
 - [ ] create heap for priority
 - [ ] handle pair questions
 
+explore:
+- [ ] Frodo API
+
 will not use (for this project):
 - [ ] react router
  
@@ -41,18 +45,24 @@ Components
     App
         Header
         Main
-            Queue
+            LoginForm (when not logged in)
+            Queue (when logged in)
                 Card
-                    Staff
-            Enqueue
+                    <!-- Staff -->
+                    Chat
+                    Dequeue (logged in, as staff)
+            Enqueue (logged in, as student)
                 EnqueueForm
+            ArchiveQueue (when logged in)
+                Card
+                    Chat
         Footer
  
 
 
 
 
-
+<!-- Co-authored-by: Katrina Huber-Juma <katrina.huber@gmail.com>" -->
 
 links:
 https://reactjs.org/tutorial/tutorial.html
