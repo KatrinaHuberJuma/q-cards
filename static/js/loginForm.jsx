@@ -23,7 +23,6 @@ function LoginForm(props) {
         fetch('/login', options)
         .then(response => {
             if (response.status === 200){
-                console.log(response)
                 props.handleLogin()
                 return response.json();
             } else {
@@ -31,7 +30,11 @@ function LoginForm(props) {
             }
         })
         .then(data => {
-            console.log(data)
+            console.log('about to deal with some cool data', data)
+            if (data.isStaff){
+                console.log('data.isStaff seems true....')
+                props.declareStaff();
+            }
         })
         .catch(err => {console.error(`ERROR ${err}`)})
 

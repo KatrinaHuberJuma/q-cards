@@ -1,7 +1,7 @@
 "use strict";
 // TODO: Why "unreachable code after return statement"
 
-function Queue(){
+function Queue(props){
 
     const [cardsData, setCardsData] = React.useState([]);
     
@@ -22,6 +22,7 @@ function Queue(){
                   studentName={card.studentName}
                   imgUrl={card.imgUrl}
                   question={card.question}
+                  showDequeue={props.isStaff}
               />
           )
       }
