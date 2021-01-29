@@ -29,6 +29,10 @@ def login():
     user_name = request.json.get('userName')
     password = request.json.get('password')
 
+    print('*'*15)
+    print(f'\n\nuser_name = {user_name}, password = {password}\n\n')
+    print('*'*15)
+
     for user in users:
         if user['user_name'] == user_name and user['password'] == password:
             return jsonify(user)
