@@ -21,8 +21,17 @@ function LoginForm(props) {
         }
 
         fetch('/login', options)
-        .then(response => response.json())
-        .then(data => {alert(data)})
+        .then(response => {
+            if (response.status === 200){
+                props.handleLogin()
+                return response.json();
+            } else {
+                console.error(`ERROR ${response.statusText}`)
+            }
+        })
+        .then(data => {
+            console.log(data)
+        })
         .catch(err => {console.error(`ERROR ${err}`)})
 
     }
@@ -41,7 +50,7 @@ function LoginForm(props) {
                 onChange={e=>{setPassword(e.target.value)}} 
             />
             <input type="submit" />
-            <button onClick={props.handleLogin}>I shall soon die</button>
+            {/* <button onClick={props.handleLogin}>I shall soon die</button> */}
         </form>
     )
 }

@@ -33,12 +33,26 @@ def login():
     print(f'\n\nuser_name = {user_name}, password = {password}\n\n')
     print('*'*15)
 
+    response = {
+        'headers': { 
+            'status': 406,
+            'statusText': 'not right pw/user name :('
+        },
+        'body': {}
+    }
+
     for user in users:
         if user['user_name'] == user_name and user['password'] == password:
-            return jsonify(user)
+            response['body'] = user
+            response['headers'] = {
+                'status': 200,
+                'statusText': 'Good job buddy!'
+            }
+            break
+            # return jsonify(response)
             # make headers to increase legitness 
 
-    return jsonify('user and password not found')
+    return jsonify(response)
 
 
 @app.route('/enqueue-submit', methods=['POST'])
