@@ -1,9 +1,10 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, session, redirect
 from random import choice, randint
 from mock_data import queue_cards, users
 
 
 app = Flask(__name__)
+app.secret_key = "SECRETSECRETSECRET"
 
 
 @app.route('/')
@@ -24,8 +25,8 @@ def return_mock_info():
 def login():
     """Login user"""
 
-    user_name = request.json.get('userName')
-    password = request.json.get('password')
+    user_name = request.form.get('user_name')
+    password = request.form.get('password')
 
     print('*'*15)
     print(f'\n\nuser_name = {user_name}, password = {password}\n\n')
@@ -39,9 +40,15 @@ def login():
 
             code = 200
             response = user
+            session['user_name'] = user_name
             break
 
-    return (jsonify(response), code)
+    # return (jsonify(response), code)
+    return redirect('/welcome')
+
+@app.route('/welcome')
+def welcome_user():
+    return render_template('welcome.html')
 
 
 @app.route('/enqueue-submit', methods=['POST'])
@@ -56,4 +63,4 @@ def handle_enqueue_submit():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port='5050')
+    app.run(debug=True, host='0.0.0.0')
