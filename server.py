@@ -51,6 +51,11 @@ def welcome_user():
     return render_template('welcome.html')
 
 
+@app.route('/queue')
+def display_queue():
+    return render_template('queue.html', queue_cards=queue_cards)
+
+
 @app.route('/enqueue-submit', methods=['POST'])
 def handle_enqueue_submit():
     """Store form data"""

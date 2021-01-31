@@ -25,6 +25,16 @@ class TestFlaskRoutes(unittest.TestCase):
 
         self.assertIn(b'<h1>Welcome Balloonicorn</h1>', result.data)
 
+    def test_queue(self):
+
+        client = server.app.test_client()
+        result = client.get('/queue')
+
+        self.assertIn(b'Athelia', result.data)
+        self.assertIn(b'Kat', result.data)
+        self.assertIn(b'Thu', result.data)
+        self.assertIn(b'Andrew', result.data)
+
 
 if __name__ == '__main__':
     # If called like a script, run our tests
