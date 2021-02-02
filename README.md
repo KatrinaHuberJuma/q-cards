@@ -21,6 +21,7 @@ use react bootstrap / css grid / flexbox
     - and then it becomes a little card"
 - [ ] bug bounty
 - [ ] database, data model, routes to retrieve/update db * Kat to sally forth solo
+- [ ] use React's `session` to keep users login
 
 nice-to-haves:
 - [ ] users can unfold chat/thread area and have detailed discussions

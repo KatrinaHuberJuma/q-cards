@@ -18,6 +18,7 @@ function Main() {
             <React.Fragment>
                 <h1>Bat cave access granted</h1>
                 <Queue isStaff={isStaff} />
+                <Archive />
             </React.Fragment>
         )
     } else if (loggedIn) {
@@ -26,6 +27,7 @@ function Main() {
                 <h1>Bat cave access granted</h1>
                 <Enqueue />
                 <Queue isStaff={isStaff} />
+                <Archive />
             </React.Fragment>
         )
     } else {

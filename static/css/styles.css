@@ -1,3 +1,8 @@
+.archive-container {
+    border: 1px solid #000000;
+    width: 80%;
+}
+
 .card {
     background-color: #d6d6d6;
     margin: 15px;
@@ -14,3 +19,4 @@
 .queue {
     display: flex;
 }
+
