@@ -65,6 +65,7 @@ Components
 
 
 <!-- Co-authored-by: Katrina Huber-Juma <katrina.huber@gmail.com>" -->
+<!-- Co-authored-by: Athelia Crosmun <hi@athelia.codes>" -->
 
 links:
 https://reactjs.org/tutorial/tutorial.html
