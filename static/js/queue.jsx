@@ -17,14 +17,16 @@ function Queue(props){
     function makeCards() {
       const cards = [];
       for(const card of cardsData){
+        if (card.isActive) {
           cards.push(
-              <Card 
-                  studentName={card.studentName}
-                  imgUrl={card.imgUrl}
-                  question={card.question}
-                  showDequeue={props.isStaff}
-              />
-          )
+            <Card 
+                studentName={card.studentName}
+                imgUrl={card.imgUrl}
+                question={card.question}
+                showDequeue={props.isStaff}
+            />
+        )
+        }
       }
       return cards
 
