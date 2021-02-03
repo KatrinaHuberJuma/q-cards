@@ -1,6 +1,7 @@
 .archive-container {
     border: 1px solid #000000;
     width: 80%;
+    display: flex;
 }
 
 .card {
@@ -20,3 +21,9 @@
     display: flex;
 }
 
+.mini-card {
+    background-color: #d6d6d6;
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+}

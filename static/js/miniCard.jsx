@@ -2,7 +2,7 @@
 
 function MiniCard(props){
     return (
-        <div>
+        <div className='mini-card'>
             {props.title}
         </div>
     )

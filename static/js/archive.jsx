@@ -12,10 +12,9 @@ function Archive() {
     }, [])
 
     const makeMinis = () => {
-        
-        const minis = minisData.map(datum => <MiniCard title={ datum.title } />);
 
-
+        const minis = minisData.filter(datum => !datum.isActive)
+                                .map(datum => <MiniCard title={ datum.title } />);
         return minis;
     }
 
