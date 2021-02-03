@@ -3,20 +3,20 @@
 
 function Queue(props){
 
-    const [cardsData, setCardsData] = React.useState([]);
+    // const [activeCardData, setActiveCardData] = React.useState([]);
     
 
-    React.useEffect(() => {
-        // TODO: move to own function and call from within here
-      fetch("/cards.json")
-      .then(response => response.json())
-      .then(data => setCardsData(data))
-    }, [])
+    // React.useEffect(() => {
+    //     // TODO: move to own function and call from within here
+    //   fetch("/cards.json")
+    //   .then(response => response.json())
+    //   .then(data => setActiveCardData(data))
+    // }, [])
 
 
     function makeCards() {
       const cards = [];
-      for(const card of cardsData){
+      for(const card of props.activeCardData){
         if (card.isActive) {
           cards.push(
             <Card 
@@ -31,7 +31,7 @@ function Queue(props){
       return cards
 
       // can also use map 
-      // return cardsData.map(card => {
+      // return activeCardData.map(card => {
 
       // })
     }
