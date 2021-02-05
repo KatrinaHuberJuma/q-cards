@@ -55,5 +55,16 @@ def handle_enqueue_submit():
     return jsonify('YAS')
 
 
+@app.route('/dequeue-submit', methods=['POST'])
+def handle_dequeue_submit():
+    """Deactivate queue message"""
+    
+    card = request.json.get('card')
+
+    print('*'*8, '\n', card, '\n', '*'*8)
+
+    return jsonify('journey to the archive!')
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port='5000')

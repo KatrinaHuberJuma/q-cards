@@ -12,6 +12,17 @@ function Card(props){
 
   const cardHandleDequeue = () => {
     props.handleDequeue(props.studentName);
+    const options = { 
+      method: 'POST',
+      body: JSON.stringify({'card': {
+        studentName: props.studentName // TODO: should be question id
+      }}),
+      headers: {'Content-type': 'application/json; charset=UTF-8'}
+    }
+
+    fetch('/dequeue-submit', options)
+    .then(response => response.json())
+    .then(data => console.log(data))
   }
 
   if (props.showDequeue){
