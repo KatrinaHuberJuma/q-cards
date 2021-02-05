@@ -20,10 +20,11 @@ function Queue(props){
         if (card.isActive) {
           cards.push(
             <Card 
-                studentName={card.studentName}
-                imgUrl={card.imgUrl}
-                question={card.question}
-                showDequeue={props.isStaff}
+              handleDequeue={props.handleDequeue}
+              studentName={card.studentName}
+              imgUrl={card.imgUrl}
+              question={card.question}
+              showDequeue={props.isStaff}
             />
         )
         }
