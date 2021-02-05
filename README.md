@@ -10,14 +10,14 @@ use react bootstrap / css grid / flexbox
     - [x] hold staff/student in state in <Main />
     - [ ] come up with better fake user name react pun
 - [x] users can see cards holding student queue request
-- [ ] cards can be dequeued -> sent to archive
+- [x] cards can be dequeued -> sent to archive
 - [x] users can see a form that posts info to the server
     - "students fill out forms with
-    - [ ] desired outcome, 
-    - [ ] current behavior, 
-    - [ ] things I've tried, 
-    - [ ] how I got here, 
-    - [ ] other info
+    - [x] desired outcome, 
+    - [x] current behavior, 
+    - [x] things I've tried, 
+    - [x] how I got here, 
+    - [x] other info
     - and then it becomes a little card"
 - [ ] bug bounty
 - [ ] database, data model, routes to retrieve/update db * Kat to sally forth solo

@@ -51,7 +51,14 @@ def handle_enqueue_submit():
     # import pdb; pdb.set_trace()
 
     title = request.json.get('title')
-    print('\n'*5, '*'*20, title, '\n'*5)
+    desiredOutcome = request.json.get('desiredOutcome')
+    description = request.json.get('description')
+    background = request.json.get('background')
+    furtherInfo = request.json.get('furtherInfo')
+    efforts = request.json.get('efforts')
+    print('\n'*5, '*'*20, title)
+    print(f'desiredOutcome={desiredOutcome}, description={description}, background={background}, furtherInfo={furtherInfo}, efforts={efforts}')
+    print('*'*20,'\n'*5)
     return jsonify('YAS')
 
 
