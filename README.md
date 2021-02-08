@@ -19,9 +19,9 @@ use react bootstrap / css grid / flexbox
     - [x] how I got here, 
     - [x] other info
     - and then it becomes a little card"
+- [ ] database, data model, routes to retrieve/update db * ~~Kat to sally forth solo~~ Athelia to bear the solo torch!
+- [ ] use React's `session` to keep users login *** Next time on K+A Win React ***
 - [ ] bug bounty
-- [ ] database, data model, routes to retrieve/update db * Kat to sally forth solo
-- [ ] use React's `session` to keep users login
 
 nice-to-haves:
 - [ ] users can unfold chat/thread area and have detailed discussions
@@ -37,7 +37,9 @@ nice-to-haves:
 - [ ] handle pair questions
 
 explore:
-- [ ] Frodo API * Athelia solo quest
+- [x] Frodo API * Athelia solo quest -> boo, API is unhelpful
+- [ ] CSS Flexbox
+- [ ] React's version of `session`
 
 will not use (for this project):
 - [ ] react router
@@ -69,3 +71,5 @@ Components
 
 links:
 https://reactjs.org/tutorial/tutorial.html
+https://reactjsexample.com/tag/drag-drop/
+https://github.com/strml/react-draggable
