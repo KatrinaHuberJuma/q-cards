@@ -1,26 +1,17 @@
 "use strict";
 
 function Archive(props) {
+  
+  const makeMinis = () => {
 
-  // const [minisData, setMinisData] = React.useState([]);
+    const minis = props.miniCardData.filter(datum => !datum.isActive)
+                            .map(datum => <MiniCard title={ datum.title } />);
+    return minis;
+  }
 
-  // React.useEffect(()=> {
-  //   fetch('/cards.json')
-  //   .then(response => response.json())
-  //   .then(data => setMinisData(data))
-  //   .catch(err => {console.error(err)})
-  // }, [])
-
-    const makeMinis = () => {
-
-      const minis = props.miniCardData.filter(datum => !datum.isActive)
-                              .map(datum => <MiniCard title={ datum.title } />);
-      return minis;
-    }
-
-    return (
-      <div className="archive-container">
-        {makeMinis()}
-      </div>
-    )
+  return (
+    <div className="archive-container">
+      {makeMinis()}
+    </div>
+  )
 }

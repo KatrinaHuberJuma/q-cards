@@ -3,17 +3,6 @@
 
 function Queue(props){
 
-    // const [activeCardData, setActiveCardData] = React.useState([]);
-    
-
-    // React.useEffect(() => {
-    //     // TODO: move to own function and call from within here
-    //   fetch("/cards.json")
-    //   .then(response => response.json())
-    //   .then(data => setActiveCardData(data))
-    // }, [])
-
-
     function makeCards() {
       const cards = [];
       for(const card of props.activeCardData){

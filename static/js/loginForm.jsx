@@ -20,7 +20,7 @@ const handleSubmit = (evt) => {
 
   fetch('/login', options)
   .then(response => {
-    if (response.status === 200){
+    if (response.status === 200){  // Question: is this a thing that is good/bad/fine?
       props.handleLogin()
       return response.json();
     } else {

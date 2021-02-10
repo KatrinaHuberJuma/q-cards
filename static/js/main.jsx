@@ -26,6 +26,7 @@ function Main() {
   // Question: why does this eternally fetch when not in useEffect?
   // also why does it run again after you log in
   React.useEffect(() => {
+    // Question: move down to end of this file or to another file?
     // TODO: move to own function and call from within here
     fetch("/cards.json")
     .then(response => response.json())
@@ -48,6 +49,7 @@ function Main() {
 
   // Question: why did the 'else if' Queue component care that it didn't have 
   // a prop activeCardData when the 'if' Queue component was getting rendered?
+  // Question: a better way to conditionally render login form vs. student view vs. staff view?
   if (loggedIn && isStaff) {
     return (
       <React.Fragment>
