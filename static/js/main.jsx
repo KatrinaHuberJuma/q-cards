@@ -23,11 +23,9 @@ function Main() {
     setIsStaff(true);
   }
 
-  // Question: why does this eternally fetch when not in useEffect?
-  // also why does it run again after you log in
   React.useEffect(() => {
     // Question: move down to end of this file or to another file?
-    // TODO: move to own function and call from within here
+    // TODO: move to own function (e.g. updateCards) and call from within here. then can call updateCards whenever the data should change
     fetch("/cards.json")
     .then(response => response.json())
     .then(data => setCardsData(data))
@@ -37,6 +35,8 @@ function Main() {
   const activeCardData = [];
   const miniCardData = [];
   
+  // TODO: better in a useEffect because no need to re-render every time component mounts, only whenever data is actually changed
+  // or better: have back end do more data manipulation
   for (const datum of cardsData){
     if (datum.isActive){
       // console.log(`I'm an active datum ${datum.studentName}`)
@@ -47,8 +47,6 @@ function Main() {
     }
   }
 
-  // Question: why did the 'else if' Queue component care that it didn't have 
-  // a prop activeCardData when the 'if' Queue component was getting rendered?
   // Question: a better way to conditionally render login form vs. student view vs. staff view?
   if (loggedIn && isStaff) {
     return (
@@ -62,10 +60,16 @@ function Main() {
       return (
         <React.Fragment>
           <h1>Bat cave access granted</h1>
-          <Enqueue />
-          <Queue isStaff={isStaff} activeCardData={activeCardData} />
+          {/* TODO: ternary for conditional rendering {  isStaff ? <Enqueue /> : null }  */}
+          <Queue isStaff={isStaff} activeCardData={activeCardData} handleDequeue={handleDequeue} />
           <Archive miniCardData={miniCardData} />
+          {/* TODO: composition 
+          <FancyWrapper>
+            <OtherStuff thingy={thingy}></OtherStuff>
+          </FancyWrapper> */}
         </React.Fragment>
+
+        // TODO: composition { ...props.children }
       )
   } else {
     return ( 

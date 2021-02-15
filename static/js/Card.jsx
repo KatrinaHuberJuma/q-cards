@@ -1,6 +1,10 @@
 "use strict";
 
-function Card(props){
+function Card({studentName, showDequeue, imgUrl, question} ){
+  // that's props destructuring 
+  // TODO remove all the props.
+
+  // const {studentName, showDequeue, imgUrl, question} = props;
 
   const cardHandleDequeue = () => {
     props.handleDequeue(props.studentName);
@@ -22,6 +26,7 @@ function Card(props){
       <h1>{props.studentName}</h1>
       <img src={props.imgUrl}/>
       <p>{props.question}</p>
+      {/* TODO: handle whether to show dequeue button in ternary */}
       <button id={props.studentName} onClick={cardHandleDequeue}>Dequeue</button>
     </div>)
   }else{

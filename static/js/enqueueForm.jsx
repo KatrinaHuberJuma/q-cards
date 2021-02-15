@@ -35,6 +35,8 @@ function EnqueueForm(){
     });
   }
 
+  // TODO: can have a single event handler for every input field! will need to give all the inputs a name field
+  // TODO: labels
   return (<form onSubmit={handleSubmit}>
     <input 
       type="text" 
@@ -76,3 +78,14 @@ function EnqueueForm(){
   </form>)
 
 }
+
+
+handleAll(evt)
+  updateForm({ ...form, b: evt.target.value})
+  // object spreaading: copies in the old form
+
+
+  // form = {a: 1, b:2 }
+
+  // {a: 1, b:2, }
+

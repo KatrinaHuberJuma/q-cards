@@ -20,8 +20,16 @@ use react bootstrap / css grid / flexbox
     - [x] other info
     - and then it becomes a little card"
 - [ ] database, data model, routes to retrieve/update db * ~~Kat to sally forth solo~~ Athelia to bear the solo torch!
-- [ ] use React's `session` to keep users login *** Next time on K+A Win React ***
+- [ ] use React's `session` to keep users login
 - [ ] bug bounty
+
+*** Finish processing notes: Next time on K+A Win React ***
+
+Refactorings
+- [ ] sort active and inactive cards on the backend (maybe still one route with url arg/options header?)
+- [ ] `Queue` will perform active card fetch, `Archive` will fetch the inactive cards
+- [ ] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change
+- [ ] put `makeCards()` of `Queue` and `Archive` into a useEffect to prevent infinite loops/slow downs
 
 nice-to-haves:
 - [ ] users can unfold chat/thread area and have detailed discussions
@@ -35,6 +43,7 @@ nice-to-haves:
 - [ ] create JS queue class
 - [ ] create heap for priority
 - [ ] handle pair questions
+- [ ] cute empty queue gif (a beach?)
 
 explore:
 - [x] Frodo API * Athelia solo quest -> boo, API is unhelpful
