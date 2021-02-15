@@ -36,6 +36,8 @@ khj_student = Student(  computer='mac',
 #             student = khj
 #             )
 
-db.session.add(ac)
+# db.session.add(ac)
 db.session.add(ac_staff)
+# db.session.add(khj)
+db.session.add(khj_student)
 db.session.commit()
