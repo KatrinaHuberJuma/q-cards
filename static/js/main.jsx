@@ -47,30 +47,15 @@ function Main() {
     }
   }
 
-  // Question: a better way to conditionally render login form vs. student view vs. staff view?
-  if (loggedIn && isStaff) {
+  if (loggedIn) {
     return (
       <React.Fragment>
         <h1>Bat cave access granted</h1>
+        { isStaff ? null : <Enqueue /> } 
         <Queue isStaff={isStaff} activeCardData={activeCardData} handleDequeue={handleDequeue}/>
         <Archive miniCardData={miniCardData} />
       </React.Fragment>
     )
-  } else if (loggedIn) {
-      return (
-        <React.Fragment>
-          <h1>Bat cave access granted</h1>
-          {/* TODO: ternary for conditional rendering {  isStaff ? <Enqueue /> : null }  */}
-          <Queue isStaff={isStaff} activeCardData={activeCardData} handleDequeue={handleDequeue} />
-          <Archive miniCardData={miniCardData} />
-          {/* TODO: composition 
-          <FancyWrapper>
-            <OtherStuff thingy={thingy}></OtherStuff>
-          </FancyWrapper> */}
-        </React.Fragment>
-
-        // TODO: composition { ...props.children }
-      )
   } else {
     return ( 
       <React.Fragment>
