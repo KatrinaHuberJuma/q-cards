@@ -2,6 +2,14 @@
 
 function EnqueueForm(){
   const [issueTitle, setIssueTitle] = React.useState('');
+  // const [formData, setFormData] = React.useState({ // WIP TODO QUESTION HALP
+  //   'title': '',
+  //   'desiredOutcome': '',
+  //   'description': '',
+  //   'background': '',
+  //   'furtherInfo': '', 
+  //   'efforts': ''
+  // })
   const [desiredOutcome, setDesiredOutcome] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [background, setBackground] = React.useState('');
@@ -14,7 +22,7 @@ function EnqueueForm(){
     alert(issueTitle)
 
     const options = {
-      method: "POST", 
+      method: 'POST', 
       body: JSON.stringify({
         title: issueTitle,
         desiredOutcome: desiredOutcome,
@@ -23,7 +31,7 @@ function EnqueueForm(){
         furtherInfo: furtherInfo,
         efforts: efforts
       }),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
+      headers: {'Content-type': 'application/json; charset=UTF-8'}
     }
 
     fetch("/enqueue-submit", options)
@@ -35,11 +43,13 @@ function EnqueueForm(){
     });
   }
 
-  // TODO: FIXME: can have a single event handler for every input field! will need to give all the inputs a name field
+  // TODO: FIXME: can have a single event handler for every input field! 
+  // will need to give all the inputs a name field
   // TODO: labels
   return (<form onSubmit={handleSubmit}>
     <input 
       type="text" 
+      name="title"
       placeholder="title for mini card" 
       value={issueTitle} 
       onChange={e => setIssueTitle(e.target.value)}
@@ -80,12 +90,14 @@ function EnqueueForm(){
 }
 
 
-handleAll(evt)
-  updateForm({ ...form, b: evt.target.value})
-  // object spreaading: copies in the old form
+// function handleAll(evt) {
+//   // TODO QUESTION: const vs function?
+//   updateForm({ ...form, evt.target.name: evt.target.value})
+//   // object spreading: copies in the old form
+//   // form = { a: 1, b: 2 }
+//   // { a: 1, b: 2, b: 3 }
+//   // -> { a: 1, b: 3 }
 
+// }
 
-  // form = {a: 1, b:2 }
-
-  // {a: 1, b:2, }
-
+// // const updateForm(dictionary of fields/values, new key/value to update)
