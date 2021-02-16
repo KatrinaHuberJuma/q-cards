@@ -2,7 +2,7 @@
 
 function Card({studentName, showDequeue, imgUrl, question} ){
   // that's props destructuring 
-  // TODO remove all the props.
+  // TODO FIXME remove all the props.
 
   // const {studentName, showDequeue, imgUrl, question} = props;
 
