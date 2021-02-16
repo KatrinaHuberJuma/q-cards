@@ -28,11 +28,21 @@ function Queue(props){
 
       // })
     }
+    
+    const cards = makeCards();
 
     return (
       <div className="queue">
-        {makeCards()}
+        {cards.length > 0 ? cards : <EmptyGif /> }
       </div>
     )
   }
   
+
+
+function EmptyGif() {
+  // TODO: array of happy gifs to randomly choose from
+  return (
+      <img src="https://media.giphy.com/media/3o7bu39B95jW5bBJGU/giphy.gif" />
+  )
+}

@@ -26,6 +26,9 @@ use react bootstrap / css grid / flexbox
 *** Finish processing notes: Next time on K+A Win React ***
 
 Refactorings
+- conditional rendering with ternary expression
+    - [x] in card
+    - [x] in main
 - [ ] sort active and inactive cards on the backend (maybe still one route with url arg/options header?)
 - [ ] `Queue` will perform active card fetch, `Archive` will fetch the inactive cards
 - [ ] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change
@@ -43,7 +46,7 @@ nice-to-haves:
 - [ ] create JS queue class
 - [ ] create heap for priority
 - [ ] handle pair questions
-- [ ] cute empty queue gif (a beach?)
+- [x] cute empty queue gif (a beach?)
 
 explore:
 - [x] Frodo API * Athelia solo quest -> boo, API is unhelpful
