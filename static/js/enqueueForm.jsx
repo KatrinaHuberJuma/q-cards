@@ -1,6 +1,6 @@
 "use strict";
 
-function EnqueueForm(){
+function EnqueueForm({toggleModal}){
   const [issueTitle, setIssueTitle] = React.useState('');
   // const [formData, setFormData] = React.useState({ // WIP TODO QUESTION HALP
   //   'title': '',
@@ -20,6 +20,7 @@ function EnqueueForm(){
   const handleSubmit = (evt) => {
     evt.preventDefault();
     alert(issueTitle)
+    toggleModal()
 
     const options = {
       method: 'POST', 
@@ -47,6 +48,7 @@ function EnqueueForm(){
   // will need to give all the inputs a name field
   // TODO: labels
   return (<form onSubmit={handleSubmit}>
+    <label htmlFor="title">Title</label>
     <input 
       type="text" 
       name="title"
@@ -54,32 +56,42 @@ function EnqueueForm(){
       value={issueTitle} 
       onChange={e => setIssueTitle(e.target.value)}
     />
+    <label htmlFor="description">Description</label>
     <input 
-      type="text" 
+      type="text"
+      name="description"
       placeholder="more involved description" 
       value={description} 
       onChange={e => setDescription(e.target.value)}
     />
+    <label htmlFor="desired-outcome">Desired outcome?</label>
     <input 
-      type="text" 
+      type="text"
+      name="desired-outcome"
       placeholder="what you want to happen" 
       value={desiredOutcome} 
       onChange={e => setDesiredOutcome(e.target.value)}
     />
+    <label htmlFor="efforts">What have you tried so far?</label>
     <input 
-      type="text" 
+      type="text"
+      name="efforts"
       placeholder="things I've tried" 
       value={efforts} 
       onChange={e => setEfforts(e.target.value)}
     />
+    <label htmlFor="reproduce">Steps to reproduce</label>
     <input 
-      type="text" 
+      type="text"
+      name="reproduce"
       placeholder="how I got here (steps to reproduce)" 
       value={background} 
       onChange={e => setBackground(e.target.value)}
     />
+    <label htmlFor="details">Further details:</label>
     <input 
-      type="text" 
+      type="text"
+      name="details"
       placeholder="other details you want to share" 
       value={furtherInfo} 
       onChange={e => setFurtherInfo(e.target.value)}
