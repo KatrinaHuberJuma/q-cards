@@ -15,7 +15,7 @@ class User(db.Model):
     last_name = db.Column(db.String)
     email = db.Column(db.String, unique=True)
     password = db.Column(db.String)
-    image_url = db.Column(db.String)
+    img_url = db.Column(db.String)
     computer = db.Column(db.String)
     github = db.Column(db.String) #TODO: put back non-nullability
     job_title = db.Column(db.String, nullable=False)
@@ -44,6 +44,7 @@ class Question(db.Model): # TODO is this a terrible name?
     background = db.Column(db.String)
     furtherInfo = db.Column(db.String)
     efforts = db.Column(db.String)
+    is_active = db.Column(db.Boolean, nullable=False, default=True)
 
     author = db.relationship('User', backref='questions', foreign_keys=[author_id])
     pair = db.relationship('User', backref='pair_questions', foreign_keys=[pair_id])
