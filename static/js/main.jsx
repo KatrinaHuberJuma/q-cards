@@ -32,20 +32,20 @@ function Main() {
   }, [])
   
   // console.log(cardsData);
-  const activeCardData = [];
-  const miniCardData = [];
+  const activeCardData = cardsData.active;
+  const miniCardData = cardsData.not_active;
   
-  // TODO: better in a useEffect because no need to re-render every time component mounts, only whenever data is actually changed
-  // or better: have back end do more data manipulation
-  for (const datum of cardsData){
-    if (datum.isActive){
-      // console.log(`I'm an active datum ${datum.studentName}`)
-      activeCardData.push(datum);
-    } else {
-      // console.log(`I'm a passive aggressive datum ${datum.studentName}`)
-      miniCardData.push(datum);
-    }
-  }
+  // // TODO: better in a useEffect because no need to re-render every time component mounts, only whenever data is actually changed
+  // // or better: have back end do more data manipulation
+  // for (const datum of cardsData){
+  //   if (datum.isActive){
+  //     // console.log(`I'm an active datum ${datum.studentName}`)
+  //     activeCardData.push(datum);
+  //   } else {
+  //     // console.log(`I'm a passive aggressive datum ${datum.studentName}`)
+  //     miniCardData.push(datum);
+  //   }
+  // }
 
   if (loggedIn) {
     return (

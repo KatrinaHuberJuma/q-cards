@@ -1,32 +1,36 @@
 "use strict";
 // Question: Why "unreachable code after return statement" --is this still happening?
 
-function Queue(props){
+function Queue({handleDequeue, isStaff, activeCardData}){
   // TODO: write a utility to wrap fetch
   
   // TODO: put this junk in a use effect for when cards data changes....
   // except it's fine until we have a changing state
     function makeCards() {
-      const cards = [];
-      for(const card of props.activeCardData){
-        if (card.isActive) {
-          cards.push(
-            <Card 
-              handleDequeue={props.handleDequeue}
-              studentName={card.studentName}
-              imgUrl={card.imgUrl}
-              question={card.question}
-              showDequeue={props.isStaff}
-            />
+
+      // const cards = [];
+      // for(const card of props.activeCardData){
+      //   cards.push(
+      //     <Card 
+      //       handleDequeue={props.handleDequeue}
+      //       studentName={card.author.first_name}
+      //       imgUrl={card.author.img_url}
+      //       question={card.title}
+      //       showDequeue={props.isStaff}
+      //     />
+      //   )
+      // }
+      return activeCardData.map(card => {
+        return ( 
+          <Card 
+            handleDequeue={handleDequeue}
+            studentName={card.author.first_name}
+            imgUrl={card.author.img_url}
+            question={card.title}
+            showDequeue={isStaff}
+          />
         )
-        }
-      }
-      return cards
-
-      // can also use map 
-      // return activeCardData.map(card => {
-
-      // })
+      })
     }
     
     const cards = makeCards();
