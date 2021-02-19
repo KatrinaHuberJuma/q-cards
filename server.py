@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template, jsonify
 from random import choice, randint
 from mock_data import queue_cards, users
+from helpers import *
+from model import *
 
 
 app = Flask(__name__)
@@ -14,10 +16,12 @@ def index():
 
 
 @app.route('/cards.json')
-def return_mock_info():
-    """Simulate retrieving data from db"""
+def return_questions_json():
+    """Retrieve questions data from db"""
+    questions = order_questions()
+    dict_questions = sort_question_dict(questions)
 
-    return jsonify(queue_cards)
+    return jsonify(dict_questions)
 
 
 @app.route('/login', methods= ['POST'])
@@ -74,4 +78,6 @@ def handle_dequeue_submit():
 
 
 if __name__ == '__main__':
+    
+    connect_to_db(app)
     app.run(debug=True, host='0.0.0.0', port='5000')
