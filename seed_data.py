@@ -35,21 +35,21 @@ khj = User( first_name = "Katrina",
         )
 
 ab = User(
-          first_name='Andrew',
-          last_name='Blum',
-          email = "email3@email.email", 
-          password = "password",
-          job_title='student',
-          img_url='https://fellowship.hackbrightacademy.com/media/CACHE/images/staff/andrew/32238b47f4ad742072e16f0ba1cb1794.jpeg'
-          )
+            first_name='Andrew',
+            last_name='Blum',
+            email = "email3@email.email", 
+            password = "password",
+            job_title='student',
+            img_url='https://fellowship.hackbrightacademy.com/media/CACHE/images/staff/andrew/32238b47f4ad742072e16f0ba1cb1794.jpeg'
+        )
 
 susan = User(
-             first_name='lazy',
-             last_name='susan',
-             email='s',
-             password='s',
-             job_title='student'
-             )
+                first_name='lazy',
+                last_name='susan',
+                email='s',
+                password='s',
+                job_title='student'
+            )
 
 q1 = Question(  title = "Weekend is over", 
             description = "Where did all the time go?", 
