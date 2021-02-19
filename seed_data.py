@@ -9,12 +9,12 @@ connect_to_db(server.app)
 db.create_all()
 
 eve = User(
-           first_name='empty',
-           last_name='eve',
-           email='',
-           password='',
-           job_title='staff'
-           )
+            first_name='empty',
+            last_name='eve',
+            email='',
+            password='',
+            job_title='staff'
+            )
 
 ac = User(  first_name = "Athelia", 
             last_name = "Crosmun", 
@@ -65,14 +65,28 @@ q2 = Question(  title = "I was following a fox",
             )
 
 q3 = Question(
-              title='Ready for a code review',
-              author=ab
-             )
-# db.session.add(ac)
-db.session.add(q1)
-# db.session.add(khj)
-db.session.add(q2)
-db.session.add(q3)
-db.session.add(eve)
-db.session.add(susan)
+            title='Ready for a code review',
+            author=ab
+            )
+
+iq1 = Question(  title = "And michael you would fall", 
+            description = "and turn the white snow red", 
+            desired_outcome = "as strawberries in the summertime",
+            author = ac,
+            pair=khj,
+            is_active=False
+            )   
+
+iq2 = Question(  title = "to keep their little heads", 
+            description = "from falling in the snow", 
+            desired_outcome = "I turned around an there you go",
+            author = ac,
+            pair=khj,
+            is_active=False
+            )  
+
+
+
+db.session.add_all([iq1, iq2, q1, q2, q3, eve, susan]) 
+# some users are implicitly added by relationship to questions
 db.session.commit()
