@@ -20,6 +20,19 @@ class User(db.Model):
     github = db.Column(db.String) #TODO: put back non-nullability
     job_title = db.Column(db.String, nullable=False)
 
+    def to_dict(self):
+        return {
+                'user_id': self.user_id,
+                'first_name': self.first_name,
+                'last_name': self.last_name,
+                'email': self.email,
+                'password': self.password,
+                'img_url': self.img_url,
+                'computer': self.computer,
+                'github': self.github,
+                'job_title': self.job_title
+        }
+
     def __repr__(self):
         return f'<User user_id={self.user_id} job_title={self.job_title} f+l name={self.first_name} {self.last_name}>'
 
@@ -42,16 +55,29 @@ class Question(db.Model): # TODO is this a terrible name?
     desired_outcome = db.Column(db.String)
     description = db.Column(db.String)
     background = db.Column(db.String)
-    furtherInfo = db.Column(db.String)
+    further_info = db.Column(db.String)
     efforts = db.Column(db.String)
     is_active = db.Column(db.Boolean, nullable=False, default=True)
 
     author = db.relationship('User', backref='questions', foreign_keys=[author_id])
     pair = db.relationship('User', backref='pair_questions', foreign_keys=[pair_id])
 
+    def to_dict(self):
+        return {
+                'author': self.author.to_dict(),
+                'pair': self.pair.to_dict() if self.pair else {},
+                'title': self.title,
+                'desired_outcome': self.desired_outcome,
+                'description': self.description,
+                'background': self.background,
+                'further_info': self.further_info,
+                'efforts': self.efforts,
+                'is_active': self.is_active
+        }
+
     def __repr__(self):
 
-        return f'<Question question_id={self.question_id}, title={self.title}, author_id={self.author_id}>'
+        return f'<Question question_id={self.question_id}, title={self.title}, is_active={self.is_active}, author_id={self.author_id}>'
 
 
 
@@ -79,4 +105,3 @@ if __name__ == '__main__':
     from server import app
 
     connect_to_db(app)
-    print("Connected to DB.")
