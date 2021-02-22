@@ -1,14 +1,14 @@
 "use strict";
 
-function Card({studentName, showDequeue, imgUrl, question, handleDequeue} ){
+function Card({ showDequeue, question, handleDequeue} ){
 
   const cardHandleDequeue = () => {
-    handleDequeue(studentName);
+    handleDequeue(question.question_id);
     const options = { 
       method: 'POST',
-      body: JSON.stringify({'card': {
-        studentName: studentName // TODO: should be question id
-      }}),
+      body: JSON.stringify({
+        questionId: question.question_id // TODO for reals make that util
+      }),
       headers: {'Content-type': 'application/json; charset=UTF-8'}
     }
 
@@ -18,9 +18,10 @@ function Card({studentName, showDequeue, imgUrl, question, handleDequeue} ){
   }
 
   return ( <div className="card">
-    <h1>{studentName}</h1>
-    <img src={imgUrl}/>
-    <p>{question}</p>
-    { showDequeue ? <button id={studentName} onClick={cardHandleDequeue}>Dequeue</button> : null }
+    <h1>{question.student_name}</h1>
+    <img src={question.author.img_url}/>
+    <h2>{question.title}</h2>
+    <p>{question.description}</p>
+    { showDequeue ? <button id={question.question_id} onClick={cardHandleDequeue}>Dequeue</button> : null }
   </div>)
 }

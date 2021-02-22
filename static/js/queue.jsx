@@ -20,13 +20,11 @@ function Queue({handleDequeue, isStaff, activeCardData}){
       //     />
       //   )
       // }
-      return activeCardData.map(card => {
+      return activeCardData.map(question => {
         return ( 
           <Card 
             handleDequeue={handleDequeue}
-            studentName={card.author.first_name}
-            imgUrl={card.author.img_url}
-            question={card.title}
+            question={question}
             showDequeue={isStaff}
           />
         )

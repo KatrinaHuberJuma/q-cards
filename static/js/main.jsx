@@ -5,13 +5,15 @@ function Main() {
   const [isStaff, setIsStaff] = React.useState(false)
   const [cardsData, setCardsData] = React.useState([]);
 
-  const handleDequeue = (studentName) => {
+  const handleDequeue = (questionId) => {
     // TODO: UP NEXT we no longer need to sort here, dequeue button currently broken
-    console.log(`welcome to the archive, ${studentName}`);
-    setCardsData(cardsData.map(card => {
-      card.isActive = card.studentName === studentName ? false : card.isActive;
-      return card;
-    }))
+
+    /* 
+    do a fetch to new server route dequeue_submit --modify dequeue_submit to change question.is_active to false
+    
+    */
+    console.log(`welcome to the archive, question number ${questionId}`);
+    fetchCards();
   }
 
   const handleLogin = () => {

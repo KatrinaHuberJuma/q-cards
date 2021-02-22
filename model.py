@@ -75,7 +75,8 @@ class Question(db.Model): # TODO is this a terrible name?
                 'background': self.background,
                 'further_info': self.further_info,
                 'efforts': self.efforts,
-                'is_active': self.is_active
+                'is_active': self.is_active,
+                'question_id': self.question_id
         }
 
     def __repr__(self):
