@@ -1,7 +1,8 @@
-real MVP feature: 
-use react
+## Real MVP feature: 
+- use react
 <!-- understand react router -->
-use react bootstrap / css grid / flexbox
+- use react bootstrap / css grid / flexbox
+## Detailed MVP features:
 - [ ] users can login as staff or students
     - [x] make mock login data
     - [x] server route
@@ -19,13 +20,13 @@ use react bootstrap / css grid / flexbox
     - [x] how I got here, 
     - [x] other info
     - and then it becomes a little card"
-- [ ] database, data model, routes to retrieve/update db * ~~Kat to sally forth solo~~ Athelia to bear the solo torch!
+- [ ] database
+- [x] data model
+- [ ] routes to retrieve/update db
 - [ ] use React's `session` to keep users login
 - [ ] bug bounty
 
-*** Finish processing notes: Next time on K+A Win React ***
-
-Refactorings
+## Refactorings
 - conditional rendering with ternary expression
     - [x] in card
     - [x] in main
@@ -34,7 +35,7 @@ Refactorings
 - [ ] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change
 - [ ] put `makeCards()` of `Queue` and `Archive` into a useEffect to prevent infinite loops/slow downs
 
-nice-to-haves:
+## Nice-to-haves:
 - [ ] users can unfold chat/thread area and have detailed discussions
     - "and each card has an attached chat area that can unfold"
 - [ ] users can tag cards
@@ -42,18 +43,18 @@ nice-to-haves:
 - [ ] staff location/attention indicator (who's being seen presently)
 - [ ] @ another staff for additional assistance
 - [ ] cards should be draggable
-- [ ] use react to make modal with state
-- [ ] create JS queue class
+- [x] use react to make modal with state
 - [ ] create heap for priority
-- [ ] handle pair questions
+- [x] handle pair questions
 - [x] cute empty queue gif (a beach?)
+- [ ] htttpcats for http status codes
 
-explore:
+## Explore:
 - [x] Frodo API * Athelia solo quest -> boo, API is unhelpful
 - [ ] CSS Flexbox
 - [ ] React's version of `session`
 
-will not use (for this project):
+## Will not use (for this project):
 - [ ] react router
  
 Components
@@ -81,7 +82,11 @@ Components
 <!-- Co-authored-by: Katrina Huber-Juma <katrina.huber@gmail.com>" -->
 <!-- Co-authored-by: Athelia Crosmun <hi@athelia.codes>" -->
 
-links:
+tutorial/informational links:
 https://reactjs.org/tutorial/tutorial.html
 https://reactjsexample.com/tag/drag-drop/
 https://github.com/strml/react-draggable
+
+Important links:
+https://dbdiagram.io/d/6024019780d742080a3a04c4
+https://balsamiq.cloud/sux2im4/pauie1u/r2278
