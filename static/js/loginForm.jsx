@@ -2,7 +2,7 @@
 
 function LoginForm(props) {
     
-const [userName, setUserName] = React.useState('');
+const [email, setEmail] = React.useState('');
 const [password, setPassword] = React.useState('');
 
 const handleSubmit = (evt) => {
@@ -12,7 +12,7 @@ const handleSubmit = (evt) => {
   const options = {
     method : 'POST',
     body: JSON.stringify({
-      'userName': userName,
+      'email': email,
       'password': password
     }),
     headers: {'Content-type': 'application/json; charset=UTF-8'}
@@ -29,8 +29,8 @@ const handleSubmit = (evt) => {
   })
   .then(data => {
     console.log('about to deal with some cool data', data)
-    if (data.isStaff){
-      console.log('data.isStaff seems true....')
+    if (data.is_staff){ // TODO: isStaff
+      console.log('data.is_staff seems true....') // TODO: isStaff
       props.declareStaff();
     }
   })
@@ -40,10 +40,10 @@ const handleSubmit = (evt) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="userName">What do we call you?</label>
+      <label htmlFor="email">What do we call you?</label>
       <input 
-        id="userName" 
-        onChange={e=>{setUserName(e.target.value)}} 
+        id="email" 
+        onChange={e=>{setEmail(e.target.value)}} 
       />
       
       <label htmlFor="password">Secret access code</label>

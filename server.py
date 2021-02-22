@@ -28,22 +28,21 @@ def return_questions_json():
 def login():
     """Login user"""
 
-    user_name = request.json.get('userName')
+    email = request.json.get('email')
     password = request.json.get('password')
 
     print('*'*15)
-    print(f'\n\nuser_name = {user_name}, password = {password}\n\n')
+    print(f'\n\nemail = {email}, password = {password}\n\n')
     print('*'*15)
 
     code = 403
-    response = 'not right pw/user name :('
+    response = {'message': 'not right pw/user name :('}
 
-    for user in users:
-        if user['userName'] == user_name and user['password'] == password:
+    user = validate_user(email=email, password=password)
 
-            code = 200
-            response = user
-            break
+    if user:
+        code = 200
+        response = user
 
     return (jsonify(response), code)
 

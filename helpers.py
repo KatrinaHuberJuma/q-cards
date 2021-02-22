@@ -27,6 +27,17 @@ def sort_question_dict(questions):
 
 
 
+def validate_user(email, password):
+    """ validate user with email and password"""
+
+    u = User.query.filter_by(email=email).first()
+
+    if u.password == password:
+        return u.to_dict()
+
+    return None
+
+
 if __name__ == '__main__':
     from server import app
 

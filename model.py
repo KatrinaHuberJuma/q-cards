@@ -21,6 +21,8 @@ class User(db.Model):
     job_title = db.Column(db.String, nullable=False)
 
     def to_dict(self):
+        is_staff = self.job_title.lower() in {'instructor', 'ta', 'staff'} # TODO: this is kinda hacky
+
         return {
                 'user_id': self.user_id,
                 'first_name': self.first_name,
@@ -30,7 +32,8 @@ class User(db.Model):
                 'img_url': self.img_url,
                 'computer': self.computer,
                 'github': self.github,
-                'job_title': self.job_title
+                'job_title': self.job_title,
+                'is_staff': is_staff
         }
 
     def __repr__(self):
