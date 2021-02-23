@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 # instance of SQLAlchemy class from flask_sqlalchemy
@@ -61,6 +62,7 @@ class Question(db.Model): # TODO is this a terrible name?
     further_info = db.Column(db.String)
     efforts = db.Column(db.String)
     is_active = db.Column(db.Boolean, nullable=False, default=True)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     author = db.relationship('User', backref='questions', foreign_keys=[author_id])
     pair = db.relationship('User', backref='pair_questions', foreign_keys=[pair_id])
