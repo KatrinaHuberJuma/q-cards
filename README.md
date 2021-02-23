@@ -89,6 +89,8 @@ tutorial/informational links:
 https://reactjs.org/tutorial/tutorial.html
 https://reactjsexample.com/tag/drag-drop/
 https://github.com/strml/react-draggable
+https://programmingwithmosh.com/react/localstorage-react/
+https://www.code-boost.com/react-local-storage/
 
 Important links:
 https://dbdiagram.io/d/6024019780d742080a3a04c4
