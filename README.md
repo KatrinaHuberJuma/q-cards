@@ -22,9 +22,10 @@
     - and then it becomes a little card"
 - [x] database
 - [x] data model
-- [ ] routes to retrieve/update db
-- [ ] use React's `session` to keep users login
+- [x] routes to retrieve/update db
+- [ ] use React's `session` to keep users login *** UP NEXT: trudge into mordor and learn localStorage ***
 - [ ] bug bounty
+- [ ] web sockets *** UP NEXT.next ***
 
 ## Refactorings
 - conditional rendering with ternary expression
@@ -34,6 +35,7 @@
 - [ ] `Queue` will perform active card fetch, `Archive` will fetch the inactive cards
 - [ ] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change
 - [ ] put `makeCards()` of `Queue` and `Archive` into a useEffect to prevent infinite loops/slow downs
+- [ ] investigate queue + archive order
 
 ## Nice-to-haves:
 - [ ] users can unfold chat/thread area and have detailed discussions
