@@ -13,7 +13,8 @@ eve = User(
             last_name='eve',
             email='',
             password='',
-            job_title='staff'
+            job_title='staff',
+            img_url='https://elveswriter.files.wordpress.com/2012/01/eowyn.jpg'
             )
 
 ac = User(  first_name = "Athelia", 
@@ -48,7 +49,8 @@ susan = User(
                 last_name='susan',
                 email='s',
                 password='s',
-                job_title='student'
+                job_title='student',
+                img_url='https://i.pinimg.com/564x/38/f3/36/38f336f53a26ecee87c79ffa3c1f81f3.jpg'
             )
 
 q1 = Question(  title = "Weekend is over", 
