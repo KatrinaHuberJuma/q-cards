@@ -20,7 +20,7 @@
     - [x] how I got here, 
     - [x] other info
     - and then it becomes a little card"
-- [ ] database
+- [x] database
 - [x] data model
 - [ ] routes to retrieve/update db
 - [ ] use React's `session` to keep users login
@@ -30,7 +30,7 @@
 - conditional rendering with ternary expression
     - [x] in card
     - [x] in main
-- [ ] sort active and inactive cards on the backend (maybe still one route with url arg/options header?)
+- [x] sort active and inactive cards on the backend (maybe still one route with url arg/options header?)
 - [ ] `Queue` will perform active card fetch, `Archive` will fetch the inactive cards
 - [ ] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change
 - [ ] put `makeCards()` of `Queue` and `Archive` into a useEffect to prevent infinite loops/slow downs
@@ -48,6 +48,7 @@
 - [x] handle pair questions
 - [x] cute empty queue gif (a beach?)
 - [ ] htttpcats for http status codes
+- [ ] add Save Our Queue timer that alerts staff if a question has been unaddressed for x amount of time
 
 ## Explore:
 - [x] Frodo API * Athelia solo quest -> boo, API is unhelpful
