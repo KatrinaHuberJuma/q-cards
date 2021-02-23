@@ -38,6 +38,20 @@ def validate_user(email, password):
     return None
 
 
+def create_question(title, author, description=None, desired_outcome=None, 
+                    background=None, further_info=None, efforts=None, pair=None):
+    """Add new queue question to database"""
+
+    q = Question(title=title, author=author, description=description, 
+                desired_outcome=desired_outcome, background=background, 
+                further_info=further_info, efforts=efforts, pair=pair)
+    
+    db.session.add(q)
+    db.session.commit()
+
+    return q
+
+
 if __name__ == '__main__':
     from server import app
 
