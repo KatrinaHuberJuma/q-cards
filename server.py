@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, session
 from random import choice, randint
 from mock_data import queue_cards, users
 from helpers import *
@@ -6,6 +6,7 @@ from model import *
 
 
 app = Flask(__name__)
+app.secret_key = 'ash nazg durbatuluk, ash nazg gimbatul'
 
 
 @app.route('/')
@@ -43,6 +44,7 @@ def login():
     if user:
         code = 200
         response = user
+        session['user_id'] = user['user_id'] # we dictified the user in validate_user
 
     return (jsonify(response), code)
 
@@ -54,14 +56,23 @@ def handle_enqueue_submit():
     # import pdb; pdb.set_trace()
 
     title = request.json.get('title')
-    desiredOutcome = request.json.get('desiredOutcome')
+    desired_outcome = request.json.get('desiredOutcome')
     description = request.json.get('description')
     background = request.json.get('background')
-    furtherInfo = request.json.get('furtherInfo')
+    further_info = request.json.get('furtherInfo')
     efforts = request.json.get('efforts')
     print('\n'*5, '*'*20, title)
-    print(f'desiredOutcome={desiredOutcome}, description={description}, background={background}, furtherInfo={furtherInfo}, efforts={efforts}')
+    print(f'desired_outcome={desired_outcome}, description={description}, background={background}, further_info={further_info}, efforts={efforts}')
     print('*'*20,'\n'*5)
+
+    create_question(title=title, 
+                    author_id=session['user_id'],
+                    desired_outcome=desired_outcome,
+                    description=description, 
+                    background=background, 
+                    further_info=further_info, 
+                    efforts=efforts)
+
     return jsonify('YAS')
 
 
