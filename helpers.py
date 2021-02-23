@@ -38,11 +38,11 @@ def validate_user(email, password):
     return None
 
 
-def create_question(title, author, description=None, desired_outcome=None, 
+def create_question(title, author_id, description=None, desired_outcome=None, 
                     background=None, further_info=None, efforts=None, pair=None):
     """Add new queue question to database"""
 
-    q = Question(title=title, author=author, description=description, 
+    q = Question(title=title, author_id=author_id, description=description, 
                 desired_outcome=desired_outcome, background=background, 
                 further_info=further_info, efforts=efforts, pair=pair)
     
