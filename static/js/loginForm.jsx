@@ -1,9 +1,10 @@
 "use strict";
 
-function LoginForm(props) {
+function LoginForm({handleLogin, declareStaff}) {
     
 const [email, setEmail] = React.useState('');
 const [password, setPassword] = React.useState('');
+const [remembered, setRemembered] = React.useState(true)
 
 const handleSubmit = (evt) => {
   evt.preventDefault();
@@ -21,7 +22,6 @@ const handleSubmit = (evt) => {
   fetch('/login', options)
   .then(response => {
     if (response.status === 200){  // Question: is this a thing that is good/bad/fine?
-      props.handleLogin()
       return response.json();
     } else {
       console.error(`ERROR ${response.statusText}`)
@@ -29,9 +29,15 @@ const handleSubmit = (evt) => {
   })
   .then(data => {
     console.log('about to deal with some cool data', data)
+    localStorage.setItem('jobTitle', data.job_title);
+
+    console.log(`here is your snakey user_id ${data.user_id}`);
+    console.log(`remember me???? ${remembered}`);
+    remembered ? handleLogin(data.user_id) : handleLogin();
+
     if (data.is_staff){ // TODO: isStaff
       console.log('data.is_staff seems true....') // TODO: isStaff
-      props.declareStaff();
+      declareStaff();
     }
   })
   .catch(err => {console.error(`ERROR ${err}`)})
@@ -40,7 +46,7 @@ const handleSubmit = (evt) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="email">What do we call you?</label>
+      <label htmlFor="email">what is your eeeemail?</label>
       <input 
         id="email" 
         onChange={e=>{setEmail(e.target.value)}} 
@@ -51,8 +57,14 @@ const handleSubmit = (evt) => {
         id="password" 
         onChange={e=>{setPassword(e.target.value)}} 
       />
+      <label htmlFor="rememberMe">Remember me</label>
+      <input type="checkbox" name="rememberMe" checked={remembered} onChange={ (evt) =>{
+          console.log(evt.target.attributes); 
+          console.log(remembered); 
+          setRemembered(evt.target.checked); 
+          console.log(remembered);
+      }}></input>
       <input type="submit" />
-      {/* <button onClick={props.handleLogin}>I shall soon die</button> */}
     </form>
   )
 }
