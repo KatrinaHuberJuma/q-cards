@@ -22,7 +22,7 @@ class User(db.Model):
     job_title = db.Column(db.String, nullable=False)
 
     def to_dict(self):
-        is_staff = self.job_title.lower() in {'instructor', 'ta', 'staff'} # TODO: this is kinda hacky
+        is_staff = self.job_title.lower() in {'instructor', 'ta', 'staff', 'wizard'} # TODO: this is kinda hacky
 
         return {
                 'user_id': self.user_id,

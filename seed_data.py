@@ -17,6 +17,17 @@ eve = User(
             img_url='https://elveswriter.files.wordpress.com/2012/01/eowyn.jpg'
             )
 
+
+gandalf = User(
+                first_name='Gandalf',
+                last_name='the Grey',
+                email='speakfriendandenter',
+                password='mellon',
+                job_title='wizard',
+                img_url='https://i.pinimg.com/originals/de/0c/a0/de0ca05add40b7504a66d94f5ab3dbbc.jpg'
+)
+
+
 ac = User(  first_name = "Athelia", 
             last_name = "Crosmun", 
             email = "email@email.email", 
@@ -89,6 +100,6 @@ iq2 = Question(  title = "to keep their little heads",
 
 
 
-db.session.add_all([iq1, iq2, q1, q2, q3, eve, susan]) 
+db.session.add_all([iq1, iq2, q1, q2, q3, eve, susan, gandalf]) 
 # some users are implicitly added by relationship to questions
 db.session.commit()
