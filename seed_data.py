@@ -27,6 +27,15 @@ gandalf = User(
                 img_url='https://i.pinimg.com/originals/de/0c/a0/de0ca05add40b7504a66d94f5ab3dbbc.jpg'
 )
 
+seema = User(
+                first_name='Seema',
+                last_name='Ullal',
+                email='og@hb',
+                password='password',
+                job_title='instructor',
+                img_url='https://avatars.githubusercontent.com/u/8728285?s=460&u=5ba6bbf957d07f835a5cecd35f63776ab213fd92&v=4'
+)
+
 
 ac = User(  first_name = "Athelia", 
             last_name = "Crosmun", 
@@ -77,7 +86,14 @@ q2 = Question(  title = "I was following a fox",
             pair=khj
             )
 
-q3 = Question(
+q3 = Question(  title = "My greatness is not being leveraged properly", 
+            description = "I'm an engineer, not an ornament. Give me something to do!", 
+            desired_outcome = "lots of fun problems to solve",
+            author = seema,
+            pair=ab
+            )
+
+q4 = Question(
             title='Ready for a code review',
             author=ab
             )
@@ -100,6 +116,6 @@ iq2 = Question(  title = "to keep their little heads",
 
 
 
-db.session.add_all([iq1, iq2, q1, q2, q3, eve, susan, gandalf]) 
+db.session.add_all([iq1, iq2, q1, q2, q3, eve, susan, gandalf, seema]) 
 # some users are implicitly added by relationship to questions
 db.session.commit()
