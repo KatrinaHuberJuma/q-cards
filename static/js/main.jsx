@@ -13,8 +13,8 @@ function Main() {
     activeCardData: [],
     miniCardData: [],
   });
-  const [username, setUsername] = React.useState("");
-  const [needsRefetch, setNeedsRefetch] = React.useState(false);
+  // const [username, setUsername] = React.useState("");
+  const [needsRefetch, setNeedsRefetch] = React.useState(false); 
 
   const numberOfTimesMounted = React.useRef(0);
 
@@ -59,20 +59,21 @@ function Main() {
     }
   }, []);
 
-  React.useEffect(() => {
+  // fetch function, ES6'ed and with Seema's needsRefetch improvement
+  const fetchCards = () => {
+    // TODO: UP NEXT move this out of component?
     fetch("/cards.json")
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log('in useEffect')
-        // const activeCardData = data.active; // undefined
-        // const miniCardData = data.not_active;
-        setNeedsRefetch(false); //could be problematic with setting state twice back to back - solutions are (1) reduce hook or (2) combine these states
-        setCardsData({
-          activeCardData: data.active,
-          miniCardData: data.not_active,
-        });
-      });
-  }, [needsRefetch]);
+    .then(response => response.json())
+    .then((data) => {
+      setNeedsRefetch(false);
+      setCardsData({
+        activeCardData: data.active,
+        miniCardData: data.not_active,
+      })
+    });
+  }
+
+  React.useEffect(fetchCards, [needsRefetch]);
 
   function handleDequeue(questionId) {
     console.log(`welcome to the archive, question number ${questionId}`);
@@ -84,7 +85,6 @@ function Main() {
 
   //   /*
   //   do a fetch to new server route dequeue_submit --modify dequeue_submit to change question.is_active to false
-
   //   */
   //   console.log(`welcome to the archive, question number ${questionId}`);
   //   setNeedsRefetch(true)
