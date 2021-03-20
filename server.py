@@ -49,6 +49,16 @@ def login():
     return (jsonify(response), code)
 
 
+@app.route('/user.json')
+def return_user_json():
+
+    print('yo')
+
+    user_id = request.args.get('userId')
+    print('*'*5, f'user_id = {user_id}', '*'*5)
+    return jsonify(User.query.get(user_id).to_dict())
+
+
 @app.route('/enqueue-submit', methods=['POST'])
 def handle_enqueue_submit():
     """Store form data"""
