@@ -3,13 +3,12 @@
 <!-- understand react router -->
 - use react bootstrap / css grid / flexbox
 ## Detailed MVP features:
-- [ ] users can login as staff or students
+- [x] users can login as staff or students
     - [x] make mock login data
     - [x] server route
     - [x] make login form
     - [x] logic about what logged in users see
     - [x] hold staff/student in state in <Main />
-    - [ ] come up with better fake user name react pun
 - [x] users can see cards holding student queue request
 - [x] cards can be dequeued -> sent to archive
 - [x] users can see a form that posts info to the server
@@ -23,7 +22,7 @@
 - [x] database
 - [x] data model
 - [x] routes to retrieve/update db
-- [ ] use React's `session` to keep users login *** UP NEXT: trudge into mordor and learn localStorage ***
+- [x] use React's `session` to keep users login *** UP NEXT: trudge into mordor and learn localStorage ***
 - [ ] bug bounty
 - [ ] web sockets *** UP NEXT.next ***
 
@@ -52,6 +51,7 @@
 - [ ] htttpcats for http status codes
 - [ ] add Save Our Queue timer that alerts staff if a question has been unaddressed for x amount of time
 - [ ] create SomeChillComponent (reason tbd)
+- [ ] staff away photos/statuses
 
 ## Explore:
 - [x] Frodo API * Athelia solo quest -> boo, API is unhelpful
