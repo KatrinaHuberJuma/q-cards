@@ -13,8 +13,10 @@ function Main() {
     activeCardData: [],
     miniCardData: [],
   });
-  // const [username, setUsername] = React.useState("");
+  const [userId, setUserId] = React.useState(null);
   const [needsRefetch, setNeedsRefetch] = React.useState(false); 
+  let user = null;
+
 
   const numberOfTimesMounted = React.useRef(0);
 
@@ -33,29 +35,24 @@ function Main() {
   //
   // }, [userId])
 
-  // if there is performance issues due to re-rendering you can wrap your functions in useMemo, wrap your objects in useCallback
+  const fetchUser = (userId) => {
+    const argsData = JSON.stringify({"userId": userId});
+    console.log(`argsData=${argsData}`)
+    fetch("/user.json", argsData)
+    .then(response => response.json())
+    .then(data => { console.log(data); user = data})
 
-  // useRef: make a variable that persists between renders (similar to state variables) but updating the variable value does not cause a re-render ( see line 19 and 22)
+    return user;
+  }
 
-  // useMemo is used to memoize a value. You can use it to not recalculate an expensive operation
-  // const data = calculateBasedOnSomeComplicatedExpensiveOperation(x)  // re-calculated on every re-render
-  // Alternatively
-  // const data = useMemo(() => calculateBasedOnSomeComplicatedExpensiveOperation(x), [x] ) // only recalculate data if x changes
-  // also could useMemo to force the user object that we're passing around to be the same user object each time
-
-  // useCallback is used to make a "stable" function (does not get redefined unless the dependency list values change)
-
-  // const logSomeData = () => { /* logs some data */ }
-  // return <SomeChildComponent onClickHandler={logSomeData} />
-
-  // logSomeData will get redefined each time your component re-renders
-  // because of that, the prop onClickHandler will have "changed" causing SomeChildComponent to also re-render
-  // alternatively
-  // const logSomeData = React.useCallback((y) => { /*logs some data dependent on y */}, [y] ) //logSomeData only redefined if y changes
-
+  React.useEffect(() => {
+    user = fetchUser(userId);
+  }, [userId])
+  
   React.useEffect(() => {
     if (localStorage.getItem("userId")) {
       setLoggedIn(true);
+      setUserId(localStorage.getItem("userId"))
     }
   }, []);
 
