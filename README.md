@@ -22,9 +22,10 @@
 - [x] database
 - [x] data model
 - [x] routes to retrieve/update db
-- [x] use React's `session` to keep users login *** UP NEXT: trudge into mordor and learn localStorage ***
+- [x] use React's `session` to keep users login
 - [ ] bug bounty
-- [ ] web sockets *** UP NEXT.next ***
+- [ ] web sockets *** UP NEXT ***
+- [x] logout
 
 ## Refactorings
 - conditional rendering with ternary expression
@@ -32,8 +33,8 @@
     - [x] in main
 - [x] sort active and inactive cards on the backend (maybe still one route with url arg/options header?)
 - [ ] `Queue` will perform active card fetch, `Archive` will fetch the inactive cards
-- [ ] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change
-- [ ] put `makeCards()` of `Queue` and `Archive` into a useEffect to prevent infinite loops/slow downs
+- [?] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change
+- [?] put `makeCards()` of `Queue` and `Archive` into a useEffect to prevent infinite loops/slow downs
 - [ ] investigate queue + archive order
 
 ## Nice-to-haves:
@@ -83,8 +84,10 @@ Components
 
 
 
-<!-- Co-authored-by: Katrina Huber-Juma <katrina.huber@gmail.com>" -->
-<!-- Co-authored-by: Athelia Crosmun <hi@athelia.codes>" -->
+<!-- 
+Co-authored-by: Katrina Huber-Juma <katrina.huber@gmail.com>"
+Co-authored-by: Athelia Crosmun <hi@athelia.codes>"
+-->
 
 tutorial/informational links:
 https://reactjs.org/tutorial/tutorial.html
