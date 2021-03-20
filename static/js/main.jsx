@@ -36,13 +36,13 @@ function Main() {
   // }, [userId])
 
   const fetchUser = (userId) => {
-    const argsData = JSON.stringify({"userId": userId});
-    console.log(`argsData=${argsData}`)
-    fetch("/user.json", argsData)
-    .then(response => response.json())
-    .then(data => { console.log(data); user = data})
-
-    return user;
+    if (userId) {
+      fetch(`/user.json?userId=${userId}`)
+      .then(response => response.json())
+      .then(data => { console.log(data); user = data})
+      
+    }
+    return user
   }
 
   React.useEffect(() => {
@@ -50,7 +50,7 @@ function Main() {
   }, [userId])
   
   React.useEffect(() => {
-    if (localStorage.getItem("userId")) {
+    if (localStorage.getItem("userId") !== null) {
       setLoggedIn(true);
       setUserId(localStorage.getItem("userId"))
     }
@@ -77,22 +77,17 @@ function Main() {
     setNeedsRefetch(true);
   }
 
-  // const handleDequeue = (questionId) => {
-  //   // TODO: UP NEXT we no longer need to sort here, dequeue button currently broken
-
-  //   /*
-  //   do a fetch to new server route dequeue_submit --modify dequeue_submit to change question.is_active to false
-  //   */
-  //   console.log(`welcome to the archive, question number ${questionId}`);
-  //   setNeedsRefetch(true)
-  // }
-
   const handleLogin = (userId) => {
-    setLoggedIn(!loggedIn);
+    setLoggedIn(true);
     // perhaps: userId is a state initially null; have a useEffect that updates localStorage when userId changes
-    userId
-      ? localStorage.setItem("userId", userId)
-      : localStorage.setItem("userId", null); // local storage isn't ours and could be slow af
+    // TODO: keep working on how to prevent a query to user.json with a userId = null
+    if(userId){
+      console.log(`handleLogin before, user is  ${user}`)
+      localStorage.setItem("userId", userId)
+      setUserId(userId)
+    }else{
+      localStorage.setItem("userId", null); // local storage isn't ours and could be slow af
+    }
     //because a side effect (could be slow), setting in local storage should be in a useEffect
     // if you had some state update that caused a re-render, that re-render is now dependent on localStorage setting
 
@@ -111,32 +106,18 @@ function Main() {
     setIsStaff(true);
   };
 
-  // React.useEffect(()=>{setCardsData(fetchCards)}, [])
-  // console.log(cardsData);
-  // const activeCardData = cardsData.active; // undefined
-  // const miniCardData = cardsData.not_active; // ERROR calling not_active on undefined
-
-  // TODO: the following?:
-  // if localStorage.getItem('userId')
-  // then set loggedIn to be true
-  // set isStaff based on a query to backend?
-  // bring user object to javascript?
-  // and that's all
-
-  // // next condition: if loggedIn....
-  //   if (localStorage.getItem('userId')) {
-  //     // React.useEffect(()=>{setLoggedIn(true); console.log("using effect not drugs")}, []);
-  //     console.log("howdy, localStorage is watching you")
-  //     return <h1>lolz</h1>
-  // // the below resulted in ALL the errors (activeCardData is undefined, etc)
-  //   // if (loggedIn || localStorage.getItem('userId')) {
-  //   } else
-  // const { activeCardData, miniCardData} = cardsData;
+  const handleLogout = () => {
+    alert('for sooth, i have been clicked!');
+    setUserId(null);
+    setLoggedIn(false);
+    localStorage.setItem("userId", null);
+    user = null;
+  }
 
   if (loggedIn) {
     return (
-      // fortunately this still works fine for a standard never-been-in-storage user
       <React.Fragment>
+        <Logout handleLogout={handleLogout}/>
         <h1>
           Bat cave access granted{" "}
           {isStaff
@@ -153,51 +134,11 @@ function Main() {
       </React.Fragment>
     );
   }
-  // if (localStorage.getItem('userId')) {
-  //     setLoggedIn(true);
-  //     return(
-  //       <React.Fragment>
-  //         <h1>what</h1>
-  //         {console.log(activeCardData)}
-  //         {console.log(`are you staff? ${isStaff}`)}
-  //         <Enqueue />
-  //       </React.Fragment>
-  //     )
-  // }
+
   return (
-    // fortunately this still works fine for a standard never-been-in-storage user
     <React.Fragment>
       <LoginForm handleLogin={handleLogin} declareStaff={declareStaff} />
     </React.Fragment>
   );
 
-  // if (loggedIn) { // but why don't the cards be??? TODO read this https://reactjs.org/docs/error-boundaries.html
-  //   return (
-  //     // fortunately this still works fine for a standard never-been-in-storage user
-  //     <React.Fragment>
-  //       <h1>Bat cave access granted { isStaff ? `to illustrious ${localStorage.getItem('jobTitle')}` : null } </h1>
-  //       { isStaff ? null : <Enqueue /> }
-  //       <Queue isStaff={isStaff} activeCardData={activeCardData} handleDequeue={handleDequeue}/>
-  //       <Archive miniCardData={miniCardData} />
-  //     </React.Fragment>
-  //   )
-  //   // this shows up, but we still can't use activeCardData to render the queue or archive :<
-  // } else if (localStorage.getItem('userId')){
-  //   setLoggedIn(true);
-  //   return(
-  //     <React.Fragment>
-  //       <h1>what</h1>
-  //       {console.log(activeCardData)}
-  //       {console.log(`are you staff? ${isStaff}`)}
-  //       <Enqueue />
-  //     </React.Fragment>
-  //   )
-  // } else {
-  //   return (
-  //     // fortunately this still works fine for a standard never-been-in-storage user
-  //     <React.Fragment>
-  //       <LoginForm handleLogin={handleLogin} declareStaff={declareStaff} />
-  //     </React.Fragment>
-  //   )
-  // }
 }
