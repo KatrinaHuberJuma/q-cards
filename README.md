@@ -51,6 +51,7 @@
 - [x] cute empty queue gif (a beach?)
 - [ ] htttpcats for http status codes
 - [ ] add Save Our Queue timer that alerts staff if a question has been unaddressed for x amount of time
+- [ ] create SomeChillComponent (reason tbd)
 
 ## Explore:
 - [x] Frodo API * Athelia solo quest -> boo, API is unhelpful
