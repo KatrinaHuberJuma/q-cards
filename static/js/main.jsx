@@ -50,9 +50,10 @@ function Main() {
   }, [userId])
   
   React.useEffect(() => {
-    if (localStorage.getItem("userId") !== null) {
+    let localStorageUserId = JSON.parse(localStorage.getItem("userId"))
+    if (localStorageUserId) {
       setLoggedIn(true);
-      setUserId(localStorage.getItem("userId"))
+      setUserId(localStorageUserId);
     }
   }, []);
 
@@ -107,7 +108,7 @@ function Main() {
   };
 
   const handleLogout = () => {
-    alert('for sooth, i have been clicked!');
+    console.log("don't shame the thenables (JS is a lifestyle)");
     setUserId(null);
     setLoggedIn(false);
     localStorage.setItem("userId", null);

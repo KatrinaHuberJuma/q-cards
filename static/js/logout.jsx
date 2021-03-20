@@ -1,5 +1,5 @@
 "use strict";
 
 function Logout({handleLogout}) {
-    return <button onClick={handleLogout}>I am the logout button</button>
+    return <button onClick={handleLogout}>thenablility of logging out</button>
 }
