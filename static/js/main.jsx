@@ -21,7 +21,7 @@ function Main() {
   const numberOfTimesMounted = React.useRef(0);
 
   numberOfTimesMounted.current = numberOfTimesMounted.current + 1;
-  // current is an attribute on useRef thingies (always the same object)
+  // current is an attribute on useRef kinds of things (always the same object)
 
   console.log("Number of times mounted: ", numberOfTimesMounted.current);
   // userId : either null or number
@@ -31,8 +31,7 @@ function Main() {
 
   // let user = null // if this doesn't persist between renders then use useRef to make it persist
   // useEffect(() => {
-  //  user = await fetchUser().
-  //
+  //  user = await fetchUser();
   // }, [userId])
 
   const fetchUser = (userId) => {
