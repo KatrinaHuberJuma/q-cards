@@ -23,8 +23,8 @@
 - [x] data model
 - [x] routes to retrieve/update db
 - [x] use React's `session` to keep users login
-- [ ] bug bounty
-- [ ] web sockets *** UP NEXT ***
+- [ ] bug bounty *** FEATURED UP NEXT ***
+- [ ] web sockets 
 - [x] logout
 
 ## Refactorings
@@ -32,10 +32,12 @@
     - [x] in card
     - [x] in main
 - [x] sort active and inactive cards on the backend (maybe still one route with url arg/options header?)
+- [x] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change 
+    - [ ] remove fetch function from `main.jsx` and into a helper file *** PRESHOW UP NEXT ***
 - [ ] `Queue` will perform active card fetch, `Archive` will fetch the inactive cards
-- [?] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change
 - [?] put `makeCards()` of `Queue` and `Archive` into a useEffect to prevent infinite loops/slow downs
 - [ ] investigate queue + archive order
+- [ ] make a python-to-javascript variable name modifier
 
 ## Nice-to-haves:
 - [ ] users can unfold chat/thread area and have detailed discussions
