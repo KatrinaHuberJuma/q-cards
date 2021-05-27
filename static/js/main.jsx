@@ -5,6 +5,21 @@
 
 // https://kentcdodds.com/blog/dont-sync-state-derive-it  <---- good read
 
+  // fetch function, ES6'ed and with Seema's needsRefetch improvement
+  const fetchCards = (setNeedsRefetch, setCardsData) => {
+    // TODO: UP NEXT move this out of component?
+    console.log("fetching like a puppy")
+    fetch("/cards.json")
+    .then(response => response.json())
+    .then((data) => {
+      setNeedsRefetch(false);
+      setCardsData({
+        activeCardData: data.active,
+        miniCardData: data.not_active,
+      })
+    });
+  }
+
 function Main() {
   // style tip: all hooks at top of component
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -56,21 +71,8 @@ function Main() {
     }
   }, []);
 
-  // fetch function, ES6'ed and with Seema's needsRefetch improvement
-  const fetchCards = () => {
-    // TODO: UP NEXT move this out of component?
-    fetch("/cards.json")
-    .then(response => response.json())
-    .then((data) => {
-      setNeedsRefetch(false);
-      setCardsData({
-        activeCardData: data.active,
-        miniCardData: data.not_active,
-      })
-    });
-  }
 
-  React.useEffect(fetchCards, [needsRefetch]);
+  React.useEffect(() =>{fetchCards(setNeedsRefetch, setCardsData)}, [needsRefetch]);
 
   function handleDequeue(questionId) {
     console.log(`welcome to the archive, question number ${questionId}`);
