@@ -33,7 +33,8 @@
     - [x] in main
 - [x] sort active and inactive cards on the backend (maybe still one route with url arg/options header?)
 - [x] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change 
-    - [ ] remove fetch function from `main.jsx` and into a helper file *** PRESHOW UP NEXT ***
+    - [x] remove fetch function from `main.jsx` 
+    - [ ] ...and into a helper file 
 - [ ] `Queue` will perform active card fetch, `Archive` will fetch the inactive cards
 - [?] put `makeCards()` of `Queue` and `Archive` into a useEffect to prevent infinite loops/slow downs
 - [ ] investigate queue + archive order
