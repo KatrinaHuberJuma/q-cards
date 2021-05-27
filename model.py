@@ -69,6 +69,7 @@ class Question(db.Model): # TODO is this a terrible name?
 
     def to_dict(self):
         return {
+                'question_id': self.question_id,
                 'author': self.author.to_dict(),
                 'pair': self.pair.to_dict() if self.pair else {},
                 'title': self.title,
@@ -78,7 +79,6 @@ class Question(db.Model): # TODO is this a terrible name?
                 'further_info': self.further_info,
                 'efforts': self.efforts,
                 'is_active': self.is_active,
-                'question_id': self.question_id
         }
 
     def __repr__(self):
