@@ -24,6 +24,20 @@
 - [x] routes to retrieve/update db
 - [x] use React's `session` to keep users login
 - [ ] bug bounty *** FEATURED UP NEXT ***
+    - [ ] keep track of who earns squyshes
+        - [ ] adjust model
+    - is the bounty per 
+        - [ ] all time
+        - [ ] cohort
+        - [ ] week (unit?)
+        - [ ] lab
+    - place to display bounties (would this maybe be a new page so we can play with Router? maybe a leader board page and/or staff profiles?)
+        - [ ] personal count for signed in staff
+        - [ ] all staff leaderboard
+            - [ ] figure out router 
+            - [ ] fetch all squysh data
+        - [ ] staff profile
+    - later: how do we handle bug squash assists?
 - [ ] web sockets 
 - [x] logout
 
@@ -56,6 +70,7 @@
 - [ ] add Save Our Queue timer that alerts staff if a question has been unaddressed for x amount of time
 - [ ] create SomeChillComponent (reason tbd)
 - [ ] staff away photos/statuses
+- [ ] opt out of seeing bug bounty ranking
 
 ## Explore:
 - [x] Frodo API * Athelia solo quest -> boo, API is unhelpful
