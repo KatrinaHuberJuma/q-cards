@@ -98,9 +98,9 @@ q4 = Question(
             author=ab
             )
 
-iq1 = Question(  title = "And michael you would fall", 
-            description = "and turn the white snow red", 
-            desired_outcome = "as strawberries in the summertime",
+iq1 = Question(  title = "How do we cross Caradhras?", 
+            description = "much snow, evil intent, fell voices on the wind", 
+            desired_outcome = "being on the other side",
             author = ac,
             pair=khj,
             is_active=False
@@ -114,8 +114,8 @@ iq2 = Question(  title = "to keep their little heads",
             is_active=False
             )  
 
+a = Appearance(question=iq1, rescuer=gandalf, staff_notes='We must go down into the depths of Khazad-dûm and cross through the darkness')
 
-
-db.session.add_all([iq1, iq2, q1, q2, q3, eve, susan, gandalf, seema]) 
+db.session.add_all([iq1, iq2, q1, q2, q3, eve, susan, gandalf, seema, a]) 
 # some users are implicitly added by relationship to questions
 db.session.commit()

@@ -6,7 +6,7 @@ db = SQLAlchemy()
 # db is an object with certain methods and attributes
 
 class User(db.Model):
-    """A user."""
+    """A user, student or staff"""
 
     __tablename__ = 'users'
 
@@ -38,13 +38,45 @@ class User(db.Model):
         }
 
     def __repr__(self):
-        return f'<User user_id={self.user_id} job_title={self.job_title} f+l name={self.first_name} {self.last_name}>'
+        return f'<User user_id={self.user_id} job_title={self.job_title} first_+last_name={self.first_name} {self.last_name}>'
 
 
-class Question(db.Model): # TODO is this a terrible name?
-    """ 
-    
-    cols: plea_id, user_id, title, question, details"""
+class Appearance(db.Model):
+    """A queue visit by (usually) staff to a student waiting for help."""
+
+    __tablename__ = 'appearances'
+
+    appearance_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    staff_notes = db.Column(db.String)
+    start_time = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    end_time = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    resolved = db.Column(db.Boolean, nullable=False, default=False)
+    question_id = db.Column(db.Integer,
+                        db.ForeignKey('questions.question_id'))
+    rescuer_id = db.Column(db.Integer,
+                        db.ForeignKey('users.user_id'))
+
+    question = db.relationship('Question', backref='appearances')
+    rescuer = db.relationship('User', backref='appearances')
+
+    def to_dict(self):
+        return {
+                'appearance_id': self.appearance_id,
+                'rescuer_id': self.rescuer_id, # TODO: do we want dictß or idß?
+                'question_id': self.question_id,
+                'staff_notes': self.staff_notes,
+                'start_time': self.start_time,
+                'end_time': self.end_time,
+                'resolved': self.resolved,
+        }
+
+    def __repr__(self):
+        return f'<Appearance {self.appearance_id} question_id={self.question_id} rescuer_id={self.rescuer_id}>'
+
+
+
+class Question(db.Model):
+    """A queue request posed by a student asking for help."""
 
     __tablename__ = 'questions'
 

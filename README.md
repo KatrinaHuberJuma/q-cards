@@ -25,7 +25,8 @@
 - [x] use React's `session` to keep users login
 - [ ] bug bounty *** FEATURED UP NEXT ***
     - [ ] keep track of who earns squyshes
-        - [ ] adjust model
+        - [x] adjust model 
+        - to consider: can their be many resucuers to a question (yes, this is handled by multiple appearances)
     - is the bounty per 
         - [ ] all time
         - [ ] cohort
