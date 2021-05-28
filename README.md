@@ -24,6 +24,21 @@
 - [x] routes to retrieve/update db
 - [x] use React's `session` to keep users login
 - [ ] bug bounty *** FEATURED UP NEXT ***
+    - [ ] keep track of who earns squyshes
+        - [x] adjust model 
+        - to consider: can their be many resucuers to a question (yes, this is handled by multiple appearances)
+    - is the bounty per 
+        - [ ] all time
+        - [ ] cohort
+        - [ ] week (unit?)
+        - [ ] lab
+    - place to display bounties (would this maybe be a new page so we can play with Router? maybe a leader board page and/or staff profiles?)
+        - [ ] personal count for signed in staff
+        - [ ] all staff leaderboard
+            - [ ] figure out router 
+            - [ ] fetch all squysh data
+        - [ ] staff profile
+    - later: how do we handle bug squash assists?
 - [ ] web sockets 
 - [x] logout
 
@@ -33,7 +48,8 @@
     - [x] in main
 - [x] sort active and inactive cards on the backend (maybe still one route with url arg/options header?)
 - [x] move fetching cards to own function (e.g. `updateCards`) and call from within `useEffect` in `Main`. then can call `updateCards` whenever the data should change 
-    - [ ] remove fetch function from `main.jsx` and into a helper file *** PRESHOW UP NEXT ***
+    - [x] remove fetch function from `main.jsx` 
+    - [ ] ...and into a helper file 
 - [ ] `Queue` will perform active card fetch, `Archive` will fetch the inactive cards
 - [?] put `makeCards()` of `Queue` and `Archive` into a useEffect to prevent infinite loops/slow downs
 - [ ] investigate queue + archive order
@@ -55,6 +71,7 @@
 - [ ] add Save Our Queue timer that alerts staff if a question has been unaddressed for x amount of time
 - [ ] create SomeChillComponent (reason tbd)
 - [ ] staff away photos/statuses
+- [ ] opt out of seeing bug bounty ranking
 
 ## Explore:
 - [x] Frodo API * Athelia solo quest -> boo, API is unhelpful

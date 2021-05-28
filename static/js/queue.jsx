@@ -26,6 +26,7 @@ function Queue({handleDequeue, isStaff, activeCardData}){
             handleDequeue={handleDequeue}
             question={question}
             showDequeue={isStaff}
+            key={question.question_id}
           />
         )
       })
