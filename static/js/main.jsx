@@ -24,6 +24,7 @@ function Main() {
   // style tip: all hooks at top of component
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [isStaff, setIsStaff] = React.useState(false);
+  const [squyshCount, setSquyshCount] = React.useState(null);
   const [cardsData, setCardsData] = React.useState({
     activeCardData: [],
     miniCardData: [],
@@ -53,7 +54,11 @@ function Main() {
     if (userId) {
       fetch(`/user.json?userId=${userId}`)
       .then(response => response.json())
-      .then(data => { console.log(data); user = data})
+      .then(data => { 
+        console.log(data); 
+        user = data;
+        setSquyshCount(data.squysh_count);
+      })
       
     }
     return user
@@ -103,7 +108,8 @@ function Main() {
       `Look what we found in localStorage~ ${localStorage.getItem("jobTitle")}`
     );
     console.log(
-      "you are a mighty staff member, I am so honored by your presence"
+      "you are a mighty staff member, I am so honored by your presence",
+      // `your squyshes to date are ${user.squysh_count}`
     );
     setIsStaff(true);
   };
@@ -121,10 +127,10 @@ function Main() {
       <React.Fragment>
         <Logout handleLogout={handleLogout}/>
         <h1>
-          Bat cave access granted{" "}
+          Bat cave access granted
           {isStaff
-            ? `to illustrious ${localStorage.getItem("jobTitle")}`
-            : null}{" "}
+            ? ` to illustrious ${localStorage.getItem("jobTitle")} with squysh count ${squyshCount}`
+            : null}
         </h1>
         {isStaff ? null : <Enqueue />}
         <Queue

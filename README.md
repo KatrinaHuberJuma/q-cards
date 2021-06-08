@@ -22,7 +22,8 @@
 - [x] database
 - [x] data model
 - [x] routes to retrieve/update db
-- [x] use React's `session` to keep users login
+- [x] use ~~React's `session`~~ local storage to keep users login
+    - [ ] debug staff not being re-staff-ed when pulling from local storage
 - [ ] bug bounty *** FEATURED UP NEXT ***
     - [ ] keep track of who earns squyshes
         - [x] adjust model 
@@ -33,7 +34,7 @@
         - [ ] week (unit?)
         - [ ] lab
     - place to display bounties (would this maybe be a new page so we can play with Router? maybe a leader board page and/or staff profiles?)
-        - [ ] personal count for signed in staff
+        - [x] personal count for signed in staff
         - [ ] all staff leaderboard
             - [ ] figure out router 
             - [ ] fetch all squysh data
@@ -72,11 +73,16 @@
 - [ ] create SomeChillComponent (reason tbd)
 - [ ] staff away photos/statuses
 - [ ] opt out of seeing bug bounty ranking
+- [ ] update to new, sad version of sqlalchemy querying
 
 ## Explore:
 - [x] Frodo API * Athelia solo quest -> boo, API is unhelpful
 - [ ] CSS Flexbox
 - [ ] React's version of `session`
+
+## Code Review Questions:
+- Should we be concerned about number of mountings?
+- 
 
 ## Will not use (for this project):
 - [ ] react router
