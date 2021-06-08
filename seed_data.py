@@ -122,3 +122,5 @@ a = Appearance(question=iq1,
 db.session.add_all([iq1, iq2, q1, q2, q3, eve, susan, gandalf, seema, a]) 
 # some users are implicitly added by relationship to questions
 db.session.commit()
+
+q2.make_appearance(gandalf.user_id)

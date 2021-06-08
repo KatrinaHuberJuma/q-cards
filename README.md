@@ -42,6 +42,9 @@
     - later: how do we handle bug squash assists?
 - [ ] web sockets 
 - [x] logout
+- [ ] resolving queue questions <---- We are here
+    - [ ] MVP squyshing: dequeuing automatically resolves a queue question
+    - [ ] improved squyshing: dequeuing prompts comments field? not automatically resolved?
 
 ## Refactorings
 - conditional rendering with ternary expression

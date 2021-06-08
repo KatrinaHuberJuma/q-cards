@@ -128,6 +128,15 @@ class Question(db.Model):
                 'is_active': self.is_active,
         }
 
+    def make_appearance(self, staff_id):
+        """Adds an Appearance by a staff member for this Question.
+        MVP: resolves the question and sets is_active=False"""
+        
+        self.appearances.append(Appearance(rescuer_id=staff_id,
+                                           resolved=True))
+        self.is_active = False
+        db.session.commit()
+
     def __repr__(self):
 
         return f'<Question question_id={self.question_id}, title={self.title}, is_active={self.is_active}, author_id={self.author_id}>'
