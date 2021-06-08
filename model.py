@@ -23,6 +23,7 @@ class User(db.Model):
 
     def to_dict(self):
         is_staff = self.job_title.lower() in {'instructor', 'ta', 'staff', 'wizard'} # TODO: this is kinda hacky
+        squysh_count = self.count_squyshes() if is_staff else None
 
         return {
                 'user_id': self.user_id,
@@ -34,8 +35,22 @@ class User(db.Model):
                 'computer': self.computer,
                 'github': self.github,
                 'job_title': self.job_title,
-                'is_staff': is_staff
+                'is_staff': is_staff,
+                'squysh_count': squysh_count
         }
+
+    def squyshes_dict(self): # WIP
+        squyshes = Appearance.query.filter(Appearance.rescuer_id == self.user_id,
+                                           Appearance.resolved == True).all()
+        for squysh in squyshes:
+            squysh.to_dict()
+
+    def count_squyshes(self): # TODO: cooler query to count
+        """All successful Queue Appearances by User"""
+        squysh_count = len(Appearance.query.filter(Appearance.rescuer_id == self.user_id,
+                                                   Appearance.resolved == True).all())
+        return squysh_count
+
 
     def __repr__(self):
         return f'<User user_id={self.user_id} job_title={self.job_title} first_+last_name={self.first_name} {self.last_name}>'

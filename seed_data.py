@@ -114,7 +114,10 @@ iq2 = Question(  title = "to keep their little heads",
             is_active=False
             )  
 
-a = Appearance(question=iq1, rescuer=gandalf, staff_notes='We must go down into the depths of Khazad-dûm and cross through the darkness')
+a = Appearance(question=iq1, 
+               rescuer=gandalf, 
+               staff_notes='We must go down into the depths of Khazad-dûm and cross through the darkness',
+               resolved=True)
 
 db.session.add_all([iq1, iq2, q1, q2, q3, eve, susan, gandalf, seema, a]) 
 # some users are implicitly added by relationship to questions
