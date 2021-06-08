@@ -1,20 +1,21 @@
 "use strict";
 
-function Card({ showDequeue, question, handleDequeue} ){
+function Card({ showDequeue, question, handleDequeue, userId, squyshCount, setSquyshCount} ){
 
   const cardHandleDequeue = () => {
     handleDequeue(question.question_id);
     const options = { 
       method: 'POST',
       body: JSON.stringify({
-        questionId: question.question_id // TODO for reals make that util
+        questionId: question.question_id, // TODO for reals make that util
+        rescuerId: userId // from props
       }),
       headers: {'Content-type': 'application/json; charset=UTF-8'}
     }
 
     fetch('/dequeue-submit', options)
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => setSquyshCount(squyshCount + 1))
   }
 
   return ( <div className="card">

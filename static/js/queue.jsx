@@ -1,7 +1,7 @@
 "use strict";
 // Question: Why "unreachable code after return statement" --is this still happening?
 
-function Queue({handleDequeue, isStaff, activeCardData}){
+function Queue({handleDequeue, isStaff, activeCardData, userId, squyshCount, setSquyshCount}){
   // TODO: write a utility to wrap fetch
   
   // TODO: put this junk in a use effect for when cards data changes....
@@ -26,7 +26,10 @@ function Queue({handleDequeue, isStaff, activeCardData}){
             handleDequeue={handleDequeue}
             question={question}
             showDequeue={isStaff}
+            userId={userId}
             key={question.question_id}
+            squyshCount={squyshCount}
+            setSquyshCount={setSquyshCount}
           />
         )
       })

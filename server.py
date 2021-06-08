@@ -91,14 +91,14 @@ def handle_dequeue_submit():
     """Deactivate queue message"""
     
     question_id = request.json.get('questionId') # TODO for reals make that util
+    rescuer_id = request.json.get('rescuerId')
     print('*'*8, '\nid:', question_id, '\n', '*'*8)
     question = Question.query.get(question_id)
-    print('*'*8, '\nbefore', question, '\n', '*'*8)
+    print('*'*8, '\nbefore appearance', question, '\n', '*'*8)
 
-    question.is_active = False
+    question.make_appearance(rescuer_id) 
 
-    db.session.commit()
-    print('*'*8, '\nafter', question, '\n', '*'*8)
+    print('*'*8, '\nafter appearance', question, '\n', '*'*8)
 
     return jsonify('journey to the archive!')
 

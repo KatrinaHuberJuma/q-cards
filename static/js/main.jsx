@@ -135,8 +135,11 @@ function Main() {
         {isStaff ? null : <Enqueue />}
         <Queue
           isStaff={isStaff}
+          userId={userId}
           activeCardData={cardsData.activeCardData}
           handleDequeue={handleDequeue}
+          squyshCount={squyshCount}
+          setSquyshCount={setSquyshCount}
         />
         <Archive miniCardData={cardsData.miniCardData} />
       </React.Fragment>

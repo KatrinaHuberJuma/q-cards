@@ -41,9 +41,11 @@
         - [ ] staff profile
     - later: how do we handle bug squash assists?
 - [ ] web sockets 
+    - [ ] queue updates for all connected users when enqueuing/dequeuing occurs
+    - [ ] comments are visible in real time
 - [x] logout
-- [ ] resolving queue questions <---- We are here
-    - [ ] MVP squyshing: dequeuing automatically resolves a queue question
+- [ ] resolving queue questions
+    - [x] MVP squyshing: dequeuing automatically resolves a queue question
     - [ ] improved squyshing: dequeuing prompts comments field? not automatically resolved?
 
 ## Refactorings
