@@ -1,6 +1,6 @@
 "use strict";
 
-function EnqueueForm({toggleModal}){
+function EnqueueForm({toggleModal, setNeedsRefetch}){
   const [issueTitle, setIssueTitle] = React.useState('');
   // const [formData, setFormData] = React.useState({ // WIP: TODO: QUESTION HALP
   //   'title': '',
@@ -38,7 +38,10 @@ function EnqueueForm({toggleModal}){
     fetch("/enqueue-submit", options)
     .then(response => response.json())
     .then((result) => result)
-    .then(data => alert(data))
+    .then(data => {
+      console.log("from the server", data);
+      setNeedsRefetch(true);
+    })
     .catch((error) => {
       console.error('Error:', error);
     });

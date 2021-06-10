@@ -75,15 +75,15 @@ def handle_enqueue_submit():
     print(f'desired_outcome={desired_outcome}, description={description}, background={background}, further_info={further_info}, efforts={efforts}')
     print('*'*20,'\n'*5)
 
-    create_question(title=title, 
-                    author_id=session['user_id'],
-                    desired_outcome=desired_outcome,
-                    description=description, 
-                    background=background, 
-                    further_info=further_info, 
-                    efforts=efforts)
+    question = create_question(title=title, 
+                               author_id=session['user_id'],
+                               desired_outcome=desired_outcome,
+                               description=description, 
+                               background=background, 
+                               further_info=further_info, 
+                               efforts=efforts)
 
-    return jsonify('YAS')
+    return jsonify(question.to_dict())
 
 
 @app.route('/dequeue-submit', methods=['POST'])
