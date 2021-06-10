@@ -87,7 +87,9 @@
 
 ## Code Review Questions:
 - Should we be concerned about number of mountings?
-- 
+- EnqueueForm line 8 - we wanted to make 1 piece of state to hold all the form 
+data but ran into issues (we think) Is this possible? Or do we need to keep 
+having bunches of pieces of state for each part of the form?
 
 ## Will not use (for this project):
 - [ ] react router
