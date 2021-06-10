@@ -132,7 +132,7 @@ function Main() {
             ? ` to illustrious ${localStorage.getItem("jobTitle")} with squysh count ${squyshCount}`
             : null}
         </h1>
-        {isStaff ? null : <Enqueue />}
+        {isStaff ? null : <Enqueue setNeedsRefetch={setNeedsRefetch}/>}
         <Queue
           isStaff={isStaff}
           userId={userId}

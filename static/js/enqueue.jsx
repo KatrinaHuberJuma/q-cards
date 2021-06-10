@@ -1,7 +1,7 @@
 
 "use strict";
 
-function Enqueue() {
+function Enqueue({setNeedsRefetch}) {
 
   const [showForm, setShowForm] = React.useState(false);
 
@@ -15,7 +15,7 @@ function Enqueue() {
         <div className="modal" onClick={toggleModal} />
         {/* <button onClick={toggleModal}>Enter the Queue</button> */}
         <div className="modal-main">
-          <EnqueueForm toggleModal={toggleModal} />
+          <EnqueueForm toggleModal={toggleModal} setNeedsRefetch={setNeedsRefetch} />
         </div>
       </React.Fragment>
     )
