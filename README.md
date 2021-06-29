@@ -23,7 +23,7 @@
 - [x] data model
 - [x] routes to retrieve/update db
 - [x] use ~~React's `session`~~ local storage to keep users login
-    - [ ] debug staff not being re-staff-ed when pulling from local storage
+    - [x] debug staff not being re-staff-ed when pulling from local storage
 - [ ] bug bounty *** FEATURED UP NEXT ***
     - [ ] keep track of who earns squyshes
         - [x] adjust model 
@@ -36,7 +36,7 @@
     - place to display bounties (would this maybe be a new page so we can play with Router? maybe a leader board page and/or staff profiles?)
         - [x] personal count for signed in staff
         - [ ] all staff leaderboard
-            - [ ] figure out router 
+            - [x] figure out router 
             - [ ] fetch all squysh data
         - [ ] staff profile
     - later: how do we handle bug squash assists?
@@ -122,6 +122,7 @@ Co-authored-by: Athelia Crosmun <hi@athelia.codes>"
 -->
 
 tutorial/informational links:
+https://reactrouter.com/web/guides/quick-start
 https://reactjs.org/tutorial/tutorial.html
 https://reactjsexample.com/tag/drag-drop/
 https://github.com/strml/react-draggable
