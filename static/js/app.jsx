@@ -1,28 +1,29 @@
 "use strict";
 
-console.log(ReactRouterDOM.Link);
+const Router = ReactRouterDOM.BrowserRouter;
+const {Link, Switch, Route} = ReactRouterDOM;
 
 function App() {
-    return(
-        <ReactRouterDOM.BrowserRouter>
-            <ReactRouterDOM.Link to="/">Queue</ReactRouterDOM.Link>
-            <ReactRouterDOM.Link to="/leaderboard">Leaderboard</ReactRouterDOM.Link>
-        
-        <ReactRouterDOM.Switch>
-            <ReactRouterDOM.Route path="/leaderboard">
-                <h1>ermigerd my rouutousoete</h1>
-            </ReactRouterDOM.Route>
-            <ReactRouterDOM.Route path="/">
-                <Header />
-                <Main />
-                <Footer />
-            </ReactRouterDOM.Route>
-        </ReactRouterDOM.Switch>
-
-        </ReactRouterDOM.BrowserRouter>
-    )
+  return(
+    <Router>
+      <Link to="/">Queue</Link>
+      <Link to="/leaderboard">Leaderboard</Link>
+      
+      <Switch>
+        <Route path="/leaderboard">
+          <h1>ermigerd my rouutousoete</h1>
+        </Route>
+        <Route path="/">
+          <Header />
+          <Main />
+          <Footer />
+        </Route>
+      </Switch>
+    
+    </Router>
+  )
 }
 
 ReactDOM.render(
-    <App />, document.querySelector('#app')
-  )
+  <App />, document.querySelector('#app')
+)
