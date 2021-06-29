@@ -11,7 +11,9 @@ function App() {
       
       <Switch>
         <Route path="/leaderboard">
-          <h1>ermigerd my rouutousoete</h1>
+          <Header />
+          <Leaderboard />
+          <Footer />
         </Route>
         <Route path="/">
           <Header />
@@ -25,5 +27,5 @@ function App() {
 }
 
 ReactDOM.render(
-  <App />, document.querySelector('#app')
-)
+    <App />, document.querySelector('#app')
+  )
