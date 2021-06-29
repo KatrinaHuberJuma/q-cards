@@ -30,12 +30,13 @@ const handleSubmit = (evt) => {
   .then(data => {
     console.log('about to deal with some cool data', data)
     localStorage.setItem('jobTitle', data.job_title);
-
+    
     console.log(`here is your snakey user_id ${data.user_id}`);
     console.log(`remember me???? ${remembered}`);
     remembered ? handleLogin(data.user_id) : handleLogin();
-
+    
     if (data.is_staff){ // TODO: isStaff
+      localStorage.setItem('isStaff', data.is_staff);
       console.log('data.is_staff seems true....') // TODO: isStaff
       declareStaff();
     }

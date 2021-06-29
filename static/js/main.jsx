@@ -5,20 +5,20 @@
 
 // https://kentcdodds.com/blog/dont-sync-state-derive-it  <---- good read
 
-  // fetch function, ES6'ed and with Seema's needsRefetch improvement
-  const fetchCards = (setNeedsRefetch, setCardsData) => {
-    // TODO: UP NEXT move this out of component?
-    console.log("fetching like a puppy")
-    fetch("/cards.json")
-    .then(response => response.json())
-    .then((data) => {
-      setNeedsRefetch(false);
-      setCardsData({
-        activeCardData: data.active,
-        miniCardData: data.not_active,
-      })
-    });
-  }
+// fetch function, ES6'ed and with Seema's needsRefetch improvement
+const fetchCards = (setNeedsRefetch, setCardsData) => {
+  // TODO: UP NEXT move this out of component?
+  console.log("fetching like a puppy")
+  fetch("/cards.json")
+  .then(response => response.json())
+  .then((data) => {
+    setNeedsRefetch(false);
+    setCardsData({
+      activeCardData: data.active,
+      miniCardData: data.not_active,
+    })
+  });
+}
 
 function Main() {
   // style tip: all hooks at top of component
@@ -69,9 +69,11 @@ function Main() {
   }, [userId])
   
   React.useEffect(() => {
-    let localStorageUserId = JSON.parse(localStorage.getItem("userId"))
+    let localStorageUserId = JSON.parse(localStorage.getItem("userId"));
+    let localStorageIsStaff = JSON.parse(localStorage.getItem("isStaff"));
     if (localStorageUserId) {
       setLoggedIn(true);
+      setIsStaff(localStorageIsStaff ? true : false);
       setUserId(localStorageUserId);
     }
   }, []);
